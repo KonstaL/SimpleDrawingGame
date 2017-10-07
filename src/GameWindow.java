@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.LinkedList;
 
 
 public class GameWindow extends JFrame {
@@ -19,7 +20,7 @@ public class GameWindow extends JFrame {
         askUsername(this);
         setVisible(true);
 
-        points = new ArrayList<>();
+        points = new LinkedList<>();
         
         this.addMouseListener(new MouseAdapter() {
             @Override
@@ -68,7 +69,7 @@ public class GameWindow extends JFrame {
             super.paintComponent(g);
             for(Point point : points) {
                 g.setColor(Color.RED);
-                g.fillOval(point.x,point.y,50,50);
+                g.fillOval(point.x, point.y, 10, 10);
 
                 revalidate();
                 repaint();
