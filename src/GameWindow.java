@@ -2,6 +2,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 import java.util.ArrayList;
@@ -23,6 +24,17 @@ public class GameWindow extends JFrame {
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
+                Point point = new Point(e.getX(), e.getY());
+                add(point);
+                points.add(point);
+                
+                revalidate();
+                repaint();
+            }
+        });
+        this.addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
                 Point point = new Point(e.getX(), e.getY());
                 add(point);
                 points.add(point);
