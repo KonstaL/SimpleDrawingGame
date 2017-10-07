@@ -16,19 +16,21 @@ public class GameWindow extends JFrame {
         setSize(width, height);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         askUsername(this);
+        setVisible(true);
 
         points = new ArrayList<>();
         
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                System.out.println("click");
-                add(new Point(e.getX(), e.getY()));
+                Point point = new Point(e.getX(), e.getY());
+                add(point);
+                points.add(point);
+                
                 revalidate();
                 repaint();
             }
         });
-        setVisible(true);
     }
 
     public String[] askUsername(Component parent) {
@@ -52,12 +54,13 @@ public class GameWindow extends JFrame {
         @Override
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
+            for(Point point : points) {
+                g.setColor(Color.RED);
+                g.fillOval(point.x,point.y,50,50);
 
-            g.setColor(Color.RED);
-            g.fillOval(x,y,50,50);
-
-            revalidate();
-            repaint();
+                revalidate();
+                repaint();
+            }
         }
     }
 }
