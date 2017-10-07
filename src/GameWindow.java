@@ -3,15 +3,21 @@ import javax.swing.JOptionPane;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.List;
+import java.util.ArrayList;
+import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Graphics;
 
 
 public class GameWindow extends JFrame {
+    private List<Point> points;
     public GameWindow(int width, int height) {
         setSize(width, height);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         askUsername(this);
 
-     
+        points = new ArrayList<>();
         
         this.addMouseListener(new MouseAdapter() {
             @Override
@@ -32,5 +38,26 @@ public class GameWindow extends JFrame {
             players[1] = JOptionPane.showInputDialog(parent, "Player 2!\nPlease enter name");
         } while (players[0].length() <= 0 || players[1].length() <= 0);
         return players;
+    }
+    
+    class Point extends JPanel {
+        private int x;
+        private int y;
+
+        public Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+        
+        @Override
+        public void paintComponent(Graphics g) {
+            super.paintComponent(g);
+
+            g.setColor(Color.RED);
+            g.fillOval(x,y,50,50);
+
+            revalidate();
+            repaint();
+        }
     }
 }
