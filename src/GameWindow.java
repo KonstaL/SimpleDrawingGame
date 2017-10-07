@@ -11,12 +11,15 @@ public class GameWindow extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         askUsername(this);
 
-        Point test = new Point();
-        add(test);
+     
+        
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                System.out.println("Click");
+                System.out.println("click");
+                add(new Point(e.getX(), e.getY()));
+                revalidate();
+                repaint();
             }
         });
         setVisible(true);

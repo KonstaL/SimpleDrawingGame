@@ -16,6 +16,9 @@ public class Point extends JPanel {
         super.paintComponent(g);
 
         g.setColor(Color.RED);
-        g.fillOval(50,50,50,50);
+        g.fillOval(x,y,50,50);
+
+        revalidate();
+        repaint();
     }
 }
