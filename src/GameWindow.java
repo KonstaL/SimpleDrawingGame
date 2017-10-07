@@ -6,9 +6,12 @@ public class GameWindow extends JFrame {
     public GameWindow(int width, int height) {
         setSize(width, height);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setVisible(true);
         askUsername(this);
-        
+
+        Point test = new Point();
+        this.add(test);
+
+        setVisible(true);
     }
 
     public String[] askUsername(Component parent) {
