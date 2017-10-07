@@ -10,5 +10,4 @@ public class Point extends JPanel {
         g.setColor(Color.RED);
         g.fillOval(50,50,50,50);
     }
-
 }

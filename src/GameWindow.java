@@ -1,6 +1,9 @@
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import java.awt.Component;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 
 public class GameWindow extends JFrame {
     public GameWindow(int width, int height) {
@@ -9,8 +12,13 @@ public class GameWindow extends JFrame {
         askUsername(this);
 
         Point test = new Point();
-        this.add(test);
-
+        add(test);
+        this.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                System.out.println("Click");
+            }
+        });
         setVisible(true);
     }
 
