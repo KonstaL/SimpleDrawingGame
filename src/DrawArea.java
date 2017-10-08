@@ -1,6 +1,8 @@
 import javax.swing.JComponent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseMotionListener;
 
 class DrawArea extends JComponent {
 
@@ -21,6 +23,25 @@ class DrawArea extends JComponent {
                 // Save coord x,y when mouse is pressed
                 oldX = e.getX();
                 oldY = e.getY();
+            }
+        });
+
+        addMouseMotionListener(new MouseMotionAdapter() {
+
+            public void mouseDragged(MouseEvent e) {
+                // Coord x,y when mosue dragged
+                currentX = e.getX();
+                currentY = e.getY();
+
+                if (g2 != null) {
+                    // Draw line if g2 content not null
+                    g2.drawLine(oldX, oldY, currentX, currentY);
+                    // Refresh draw area to repaint
+                    repaint();
+                    // Sotre current coordx x,y as old coords x,y
+                    oldX = currentX;
+                    oldY = currentY;
+                }
             }
         });
     }
