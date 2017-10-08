@@ -18,8 +18,6 @@ public class GameWindow extends JFrame {
         setSize(width, height);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         askUsername(this);
-        setVisible(true);
-
         /*
         points = new LinkedList<>();
         
