@@ -1,5 +1,6 @@
 import javax.swing.JComponent;
 import java.awt.event.MouseEvent;
+import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseMotionListener;
@@ -44,5 +45,17 @@ class DrawArea extends JComponent {
                 }
             }
         });
+    }
+
+    protected void paintComponent(Graphics g) {
+        if (image == null) {
+            image = createImage(getSize().width, getSize().height);
+            g2 = (Graphics2D) image.getGraphics();
+            g2.getRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                                 RenderingHints.VALUE_ANTIALIAS_ON);
+            clear();
+        }
+        g.drawImage(image, 0, null);
+
     }
 }
