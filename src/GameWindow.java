@@ -13,13 +13,14 @@ import java.util.LinkedList;
 
 
 public class GameWindow extends JFrame {
-    private List<Point> points;
+    //private List<Point> points;
     public GameWindow(int width, int height) {
         setSize(width, height);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         askUsername(this);
         setVisible(true);
 
+        /*
         points = new LinkedList<>();
         
         this.addMouseListener(new MouseAdapter() {
@@ -44,6 +45,7 @@ public class GameWindow extends JFrame {
                 repaint();
             }
         });
+        */
     }
 
     public String[] askUsername(Component parent) {
@@ -55,6 +57,7 @@ public class GameWindow extends JFrame {
         return players;
     }
     
+    /*
     class Point extends JPanel {
         private int x;
         private int y;
@@ -76,4 +79,5 @@ public class GameWindow extends JFrame {
             }
         }
     }
+    */
 }
