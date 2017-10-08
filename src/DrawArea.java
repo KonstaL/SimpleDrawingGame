@@ -4,6 +4,10 @@ import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseMotionListener;
+import java.awt.Image;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 class DrawArea extends JComponent {
 
@@ -11,7 +15,7 @@ class DrawArea extends JComponent {
     private Image image;
 
     // Gtraphics2D object ==> used to draw on
-    private Graphics2D graphics;
+    private Graphics2D g2;
     
     // Mouse coordinates
     private int currentX, currentY, oldX, oldY;
@@ -53,12 +57,12 @@ class DrawArea extends JComponent {
             image = createImage(getSize().width, getSize().height);
             g2 = (Graphics2D) image.getGraphics();
             // Enable antialiasing
-            g2.getRenderingHint(RenderingHints.KEY_ANTIALIASING,
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                                  RenderingHints.VALUE_ANTIALIAS_ON);
             clear();
         }
 
-        g.drawImage(image, 0, null);
+        g.drawImage(image, 0, 0, null);
 
     }
 
@@ -67,7 +71,7 @@ class DrawArea extends JComponent {
        // Draw white on entire draw area to clear
        g2.fillRect(0, 0, getSize().width, getSize().height);
        g2.setPaint(Color.BLACK);
-       reapint(); 
+       repaint(); 
     }
 
     public void black() {
