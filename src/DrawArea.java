@@ -49,8 +49,10 @@ class DrawArea extends JComponent {
 
     protected void paintComponent(Graphics g) {
         if (image == null) {
+            // Image to draw null ==> we create
             image = createImage(getSize().width, getSize().height);
             g2 = (Graphics2D) image.getGraphics();
+            // Enable antialiasing
             g2.getRenderingHint(RenderingHints.KEY_ANTIALIASING,
                                  RenderingHints.VALUE_ANTIALIAS_ON);
             clear();
