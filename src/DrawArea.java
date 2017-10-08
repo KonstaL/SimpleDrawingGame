@@ -57,7 +57,12 @@ class DrawArea extends JComponent {
                                  RenderingHints.VALUE_ANTIALIAS_ON);
             clear();
         }
+
         g.drawImage(image, 0, null);
 
+    }
+
+    public void clear() {
+        
     }
 }
