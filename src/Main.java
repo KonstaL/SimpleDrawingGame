@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 
 public class Main {
 
-    JButton clearBtn, blackBtn;
+    JButton clearBtn, blackBtn, redBtn, greenBtn, blueBtn;
     DrawArea drawArea;
     ActionListener actionlistener = new ActionListener() {
 
@@ -17,6 +17,12 @@ public class Main {
                 drawArea.clear();
             } else if (e.getSource() == blackBtn) {
                 drawArea.black();
+            } else if (e.getSource() == redBtn) {
+                drawArea.red();
+            } else if (e.getSource() == greenBtn) {
+                drawArea.green();
+            } else if (e.getSource() == blueBtn) {
+                drawArea.blue();
             }
         }
     };
@@ -26,9 +32,8 @@ public class Main {
     }
 
     public void show() {
-        //GameWindow test = new GameWindow(400, 400);
-        JFrame frame = new JFrame();
-        Container content = frame.getContentPane();
+        GameWindow window = new GameWindow(600, 600);
+        Container content = window.getContentPane();
         content.setLayout(new BorderLayout());
         final DrawArea drawArea = new DrawArea();
         content.add(drawArea, BorderLayout.CENTER);
@@ -37,12 +42,18 @@ public class Main {
         clearBtn.addActionListener(actionlistener);
         blackBtn = new JButton("Black");
         blackBtn.addActionListener(actionlistener);
+        redBtn = new JButton("Red");
+        redBtn.addActionListener(actionlistener);
+        greenBtn = new JButton("Green");
+        greenBtn.addActionListener(actionlistener);
+        blueBtn = new JButton("Blue");
+        blueBtn.addActionListener(actionlistener);
         controls.add(clearBtn);
         controls.add(blackBtn);
-
+        controls.add(redBtn);
+        controls.add(greenBtn);
+        controls.add(blueBtn);
         content.add(controls, BorderLayout.NORTH);
-
-        frame.setSize(600, 600);
-        frame.setVisible(true);
+        window.setVisible(true);
     }
 }
