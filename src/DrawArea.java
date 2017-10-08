@@ -73,6 +73,7 @@ class DrawArea extends JComponent {
     public void black() {
 
     }
+    
     public void red() {
 
     }
@@ -80,4 +81,8 @@ class DrawArea extends JComponent {
     public void green() {
 
     }  
+
+    public void blue() {
+
+    }
 }
