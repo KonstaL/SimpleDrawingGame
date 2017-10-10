@@ -7,33 +7,35 @@ import javax.swing.JPanel;
 import javax.swing.JFrame;
 
 public class Main {
-
-    JButton clearBtn, blackBtn, redBtn, greenBtn, blueBtn;
+    JButton clearBtn,
+            blackBtn,
+            redBtn,
+            greenBtn,
+            blueBtn;
     DrawArea drawArea;
-    ActionListener actionlistener = new ActionListener() {
-
-        public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == clearBtn) {
-                drawArea.clear();
-            } else if (e.getSource() == blackBtn) {
-                drawArea.black();
-            } else if (e.getSource() == redBtn) {
-                drawArea.red();
-            } else if (e.getSource() == greenBtn) {
-                drawArea.green();
-            } else if (e.getSource() == blueBtn) {
-                drawArea.blue();
-            } else {
-                System.out.println("Some other source"); //for debugging
-            }
-        }
-    };
+    ActionListener actionlistener;
 
     public static void main(String[] args) {
         new Main().show();
     }
 
     public void show() {
+        actionlistener = (ActionEvent e)-> {
+                if (e.getSource() == clearBtn) {
+                    drawArea.clear();
+                } else if (e.getSource() == blackBtn) {
+                    drawArea.black();
+                } else if (e.getSource() == redBtn) {
+                    drawArea.red();
+                } else if (e.getSource() == greenBtn) {
+                    drawArea.green();
+                } else if (e.getSource() == blueBtn) {
+                    drawArea.blue();
+                } else {
+                    System.out.println("Some other source"); //for debugging
+                }
+        };
+
         GameWindow window = new GameWindow(600, 600);
         Container content = window.getContentPane();
         content.setLayout(new BorderLayout());
