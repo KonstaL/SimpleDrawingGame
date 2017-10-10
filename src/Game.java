@@ -7,16 +7,17 @@ import java.awt.event.*;
 import javax.swing.JOptionPane;
 
 public class Game {
-     JButton clearBtn,
+    private GameWindow window;
+    private DrawArea drawArea;
+    JButton clearBtn,
             blackBtn,
             redBtn,
             greenBtn,
             blueBtn;
-    DrawArea drawArea;
     ActionListener actionlistener;
 
     public Game() {
-         actionlistener = (ActionEvent e)-> {
+        actionlistener = (ActionEvent e)-> {
                 if (e.getSource() == clearBtn) {
                     drawArea.clear();
                 } else if (e.getSource() == blackBtn) {
@@ -32,28 +33,30 @@ public class Game {
                 }
         };
 
-        GameWindow window = new GameWindow(600, 600);
-        Container content = window.getContentPane();
-        content.setLayout(new BorderLayout());
+        window = new GameWindow(600, 600);
         drawArea = new DrawArea();
-        content.add(drawArea, BorderLayout.CENTER);
-        JPanel controls = new JPanel();
+        
         clearBtn = new JButton("Clear");
-        clearBtn.addActionListener(actionlistener);
         blackBtn = new JButton("Black");
-        blackBtn.addActionListener(actionlistener);
         redBtn = new JButton("Red");
-        redBtn.addActionListener(actionlistener);
         greenBtn = new JButton("Green");
-        greenBtn.addActionListener(actionlistener);
         blueBtn = new JButton("Blue");
+
+        redBtn.addActionListener(actionlistener);
+        greenBtn.addActionListener(actionlistener);
+        blackBtn.addActionListener(actionlistener);
+        clearBtn.addActionListener(actionlistener);
         blueBtn.addActionListener(actionlistener);
+        
+        JPanel controls = new JPanel();
         controls.add(clearBtn);
         controls.add(blackBtn);
         controls.add(redBtn);
         controls.add(greenBtn);
         controls.add(blueBtn);
-        content.add(controls, BorderLayout.NORTH);
+
+        window.add(controls, BorderLayout.NORTH);
+        window.add(drawArea, BorderLayout.CENTER);
         window.setVisible(true);
         askUsername(window);
     }
