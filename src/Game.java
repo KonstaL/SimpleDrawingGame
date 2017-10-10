@@ -9,15 +9,15 @@ import javax.swing.JOptionPane;
 public class Game {
     private GameWindow window;
     private DrawArea drawArea;
+
     JButton clearBtn,
             blackBtn,
             redBtn,
             greenBtn,
             blueBtn;
-    ActionListener actionlistener;
 
     public Game() {
-        actionlistener = (ActionEvent e)-> {
+        ActionListener a = (ActionEvent e)-> {
                 if (e.getSource() == clearBtn) {
                     drawArea.clear();
                 } else if (e.getSource() == blackBtn) {
@@ -42,11 +42,11 @@ public class Game {
         greenBtn = new JButton("Green");
         blueBtn = new JButton("Blue");
 
-        redBtn.addActionListener(actionlistener);
-        greenBtn.addActionListener(actionlistener);
-        blackBtn.addActionListener(actionlistener);
-        clearBtn.addActionListener(actionlistener);
-        blueBtn.addActionListener(actionlistener);
+        redBtn.addActionListener(a);
+        greenBtn.addActionListener(a);
+        blackBtn.addActionListener(a);
+        clearBtn.addActionListener(a);
+        blueBtn.addActionListener(a);
         
         JPanel controls = new JPanel();
         controls.add(clearBtn);
