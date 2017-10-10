@@ -1,11 +1,10 @@
 import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
-
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.JOptionPane;
 
 public class Game {
      JButton clearBtn,
@@ -56,5 +55,15 @@ public class Game {
         controls.add(blueBtn);
         content.add(controls, BorderLayout.NORTH);
         window.setVisible(true);
+        askUsername(window);
+    }
+
+    public String[] askUsername(Component parent) {
+        String[] players = new String[2]; //Hardcoded to string and limited to 2 for now
+        do {
+            players[0] = JOptionPane.showInputDialog(parent, "Player 1!\nPlease enter name");
+            players[1] = JOptionPane.showInputDialog(parent, "Player 2!\nPlease enter name");
+        } while (players[0].length() <= 0 || players[1].length() <= 0);
+        return players;
     }
 }
