@@ -30,6 +30,10 @@ public class Game {
                     drawArea.green();
                 } else if (e.getSource() == blueBtn) {
                     drawArea.blue();
+                } else if (e.getSource() == mBtn) {
+                    drawArea.reduceBrush();
+                } else if (e.getSource() == pBtn) {
+                    drawArea.increaseBrush();
                 } else {
                     System.out.println("Some other source"); //for debugging
                 }
