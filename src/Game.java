@@ -54,6 +54,8 @@ public class Game {
         mBtn.addActionListener(a);
         pBtn.addActionListener(a);
         
+        JPanel optionsContainer = new JPanel();
+        
         JPanel controls = new JPanel();
         controls.add(clearBtn);
         controls.add(blackBtn);
@@ -63,7 +65,9 @@ public class Game {
         controls.add(mBtn);
         controls.add(pBtn);
 
-        window.add(controls, BorderLayout.NORTH);
+        optionsContainer.add(controls);
+
+        window.add(optionsContainer, BorderLayout.NORTH);
         window.add(drawArea, BorderLayout.CENTER);
         window.setVisible(true);
         askUsername(window);
