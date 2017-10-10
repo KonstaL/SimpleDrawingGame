@@ -4,6 +4,7 @@
 before letting player2 draw
 -Functionality where player2 can guess the drawing
 -Functionality where you can quit between rounds
+-Functionality to change the size of the line to draw with
 
 
 ----To Fix----
