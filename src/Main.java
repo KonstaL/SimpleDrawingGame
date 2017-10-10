@@ -23,6 +23,8 @@ public class Main {
                 drawArea.green();
             } else if (e.getSource() == blueBtn) {
                 drawArea.blue();
+            } else {
+                System.out.println("Some other source"); //for debugging
             }
         }
     };
@@ -35,7 +37,7 @@ public class Main {
         GameWindow window = new GameWindow(600, 600);
         Container content = window.getContentPane();
         content.setLayout(new BorderLayout());
-        final DrawArea drawArea = new DrawArea();
+        drawArea = new DrawArea();
         content.add(drawArea, BorderLayout.CENTER);
         JPanel controls = new JPanel();
         clearBtn = new JButton("Clear");
