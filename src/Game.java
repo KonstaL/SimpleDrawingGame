@@ -54,18 +54,21 @@ public class Game {
         mBtn.addActionListener(a);
         pBtn.addActionListener(a);
         
-        JPanel optionsContainer = new JPanel();
+        JPanel optionsContainer = new JPanel(new BorderLayout());
         
+        JPanel colorSelect = new JPanel();
+        colorSelect.add(clearBtn);
+        colorSelect.add(blackBtn);
+        colorSelect.add(redBtn);
+        colorSelect.add(greenBtn);
+        colorSelect.add(blueBtn);
+
         JPanel controls = new JPanel();
-        controls.add(clearBtn);
-        controls.add(blackBtn);
-        controls.add(redBtn);
-        controls.add(greenBtn);
-        controls.add(blueBtn);
         controls.add(mBtn);
         controls.add(pBtn);
 
-        optionsContainer.add(controls);
+        optionsContainer.add(colorSelect, BorderLayout.NORTH);
+        optionsContainer.add(controls, BorderLayout.SOUTH);
 
         window.add(optionsContainer, BorderLayout.NORTH);
         window.add(drawArea, BorderLayout.CENTER);
