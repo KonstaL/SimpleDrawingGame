@@ -14,7 +14,9 @@ public class Game {
             blackBtn,
             redBtn,
             greenBtn,
-            blueBtn;
+            blueBtn,
+            mBtn,
+            pBtn;
 
     public Game() {
         ActionListener a = (ActionEvent e)-> {
@@ -41,12 +43,16 @@ public class Game {
         redBtn = new JButton("Red");
         greenBtn = new JButton("Green");
         blueBtn = new JButton("Blue");
+        mBtn = new JButton("-");
+        pBtn = new JButton("+");
 
         redBtn.addActionListener(a);
         greenBtn.addActionListener(a);
         blackBtn.addActionListener(a);
         clearBtn.addActionListener(a);
         blueBtn.addActionListener(a);
+        mBtn.addActionListener(a);
+        pBtn.addActionListener(a);
         
         JPanel controls = new JPanel();
         controls.add(clearBtn);
@@ -54,6 +60,8 @@ public class Game {
         controls.add(redBtn);
         controls.add(greenBtn);
         controls.add(blueBtn);
+        controls.add(mBtn);
+        controls.add(pBtn);
 
         window.add(controls, BorderLayout.NORTH);
         window.add(drawArea, BorderLayout.CENTER);
