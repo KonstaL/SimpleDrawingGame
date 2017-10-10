@@ -20,6 +20,8 @@ class DrawArea extends JComponent {
     // Mouse coordinates
     private int currentX, currentY, oldX, oldY;
 
+    private int brushSize;
+
     public DrawArea() {
         setDoubleBuffered(false);
         addMouseListener(new MouseAdapter() {
@@ -88,5 +90,15 @@ class DrawArea extends JComponent {
 
     public void blue() {
         g2.setPaint(Color.BLUE);
+    }
+
+    public void reduceBrush() {
+        if(brushSize <= 1) {
+            brushSize--;
+        }
+    }
+
+    public void increaseBrush() {
+        brushSize++;
     }
 }
