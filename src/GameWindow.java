@@ -13,37 +13,11 @@ import java.util.LinkedList;
 
 
 public class GameWindow extends JFrame {
-    //private List<Point> points;
+
     public GameWindow(int width, int height) {
         setSize(width, height);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         askUsername(this);
-        /*
-        points = new LinkedList<>();
-        
-        this.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                Point point = new Point(e.getX(), e.getY());
-                add(point);
-                points.add(point);
-                
-                revalidate();
-                repaint();
-            }
-        });
-        this.addMouseMotionListener(new MouseMotionAdapter() {
-            @Override
-            public void mouseDragged(MouseEvent e) {
-                Point point = new Point(e.getX(), e.getY());
-                add(point);
-                points.add(point);
-                
-                revalidate();
-                repaint();
-            }
-        });
-        */
     }
 
     public String[] askUsername(Component parent) {
@@ -54,28 +28,4 @@ public class GameWindow extends JFrame {
         } while (players[0].length() <= 0 || players[1].length() <= 0);
         return players;
     }
-    
-    /*
-    class Point extends JPanel {
-        private int x;
-        private int y;
-
-        public Point(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-        
-        @Override
-        public void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            for(Point point : points) {
-                g.setColor(Color.RED);
-                g.fillOval(point.x, point.y, 10, 10);
-
-                revalidate();
-                repaint();
-            }
-        }
-    }
-    */
 }
