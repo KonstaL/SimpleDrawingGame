@@ -15,8 +15,8 @@ public class Game {
     DrawArea drawArea;
     ActionListener actionlistener;
 
-    public void show() {
-        actionlistener = (ActionEvent e)-> {
+    public Game() {
+         actionlistener = (ActionEvent e)-> {
                 if (e.getSource() == clearBtn) {
                     drawArea.clear();
                 } else if (e.getSource() == blackBtn) {
@@ -57,6 +57,8 @@ public class Game {
         window.setVisible(true);
         askUsername(window);
     }
+    
+  
 
     public String[] askUsername(Component parent) {
         String[] players = new String[2]; //Hardcoded to string and limited to 2 for now
