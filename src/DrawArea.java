@@ -23,6 +23,7 @@ class DrawArea extends JComponent {
     private int brushSize;
 
     public DrawArea() {
+        brushSize = 1;
         setDoubleBuffered(false);
         addMouseListener(new MouseAdapter() {
 
@@ -40,9 +41,12 @@ class DrawArea extends JComponent {
                 currentX = e.getX();
                 currentY = e.getY();
 
+                // Draw line if g2 content not null
                 if (g2 != null) {
-                    // Draw line if g2 content not null
-                    g2.drawLine(oldX, oldY, currentX, currentY);
+                    for(int i = 0; i < brushSize; i++) {
+                        g2.drawLine(oldX + i, oldY + i, currentX + i, currentY + i);
+                    }
+                    
                     // Refresh draw area to repaint
                     repaint();
                     // Sotre current coordx x,y as old coords x,y
@@ -93,7 +97,7 @@ class DrawArea extends JComponent {
     }
 
     public void reduceBrush() {
-        if(brushSize <= 1) {
+        if(brushSize > 1) {
             brushSize--;
         }
     }
