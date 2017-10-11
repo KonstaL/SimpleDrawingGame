@@ -14,7 +14,7 @@ class DrawArea extends JComponent {
     // Image in which we're going to draw
     private Image image;
 
-    // Gtraphics2D object ==> used to draw on
+    // Graphics2D object ==> used to draw on
     private Graphics2D g2;
     
     // Mouse coordinates
@@ -37,7 +37,7 @@ class DrawArea extends JComponent {
         addMouseMotionListener(new MouseMotionAdapter() {
 
             public void mouseDragged(MouseEvent e) {
-                // Coord x,y when mosue dragged
+                // Coord x,y when mouse dragged
                 currentX = e.getX();
                 currentY = e.getY();
 
@@ -47,9 +47,9 @@ class DrawArea extends JComponent {
                         g2.drawLine(oldX + i, oldY + i, currentX + i, currentY + i);
                     }
                     
-                    // Refresh draw area to repaint
+                    // Repaint to refresh draw area
                     repaint();
-                    // Sotre current coordx x,y as old coords x,y
+                    // Set old coords x,y as current coords x,y
                     oldX = currentX;
                     oldY = currentY;
                 }
