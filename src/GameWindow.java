@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 public class GameWindow extends JFrame {
     private DrawArea drawArea;
+    private String[] players;
     JButton clearBtn,
             blackBtn,
             redBtn,
@@ -78,7 +79,13 @@ public class GameWindow extends JFrame {
         add(optionsContainer, BorderLayout.NORTH);
         add(drawArea, BorderLayout.CENTER);
         setVisible(true);
-        askUsername(this);
+    }
+
+    public void setPlayers(String[] p) {
+        this.players = p;
+    }
+    public String[] getPlayers() {
+        return this.players;
     }
 
     public String[] askUsername(Component parent) {

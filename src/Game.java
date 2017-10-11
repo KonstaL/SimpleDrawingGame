@@ -3,8 +3,6 @@ public class Game {
 
     public Game() {
         window = new GameWindow(600, 600);
-
+        window.setPlayers(window.askUsername(window));
     }
-
-
 }
