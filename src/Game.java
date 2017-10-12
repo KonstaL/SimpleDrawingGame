@@ -88,12 +88,17 @@ public class Game {
     /*
     * Method used to set the answer to an upcoming drawing.
     *
-    * @param        User inserted string that describes the drawing.
+    * @param        User inserted string that describes the drawing
     * */
     private void setCurrentAnswer(String currentAnswer) {
         this.currentAnswer = currentAnswer;
     }
 
+    /*
+    * Method used for retrieving current player.
+    *
+    * @return       Returns player object of current player
+    * */
     private Player getCurrentPlayer() {
         return currentPlayer;
     }
