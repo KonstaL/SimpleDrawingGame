@@ -1,4 +1,4 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import java.util.List;
 /*
 * The class Game initiates the main GameWindow and dialog to ask players
@@ -40,6 +40,7 @@ public class Game {
             }
             getPlayerGuess();
             checkCorrectAnswers();
+            displayScores();
         }
     }
     /*
@@ -76,6 +77,12 @@ public class Game {
             }
         });
     }
+
+    private void displayScores() {
+        JOptionPane.showMessageDialog(window, new JList(window.getPlayers().toArray()));
+    }
+
+
     /*
     * Method used to get currentAnswer attribute.
     *
