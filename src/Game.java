@@ -76,7 +76,11 @@ public class Game {
             }
         });
     }
-
+    /*
+    * Method used to get currentAnswer attribute.
+    *
+    * @return       The correct answer for current drawing
+    * */
     private String getCurrentAnswer() {
         return currentAnswer;
     }
