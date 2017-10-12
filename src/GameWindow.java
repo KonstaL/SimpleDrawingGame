@@ -18,6 +18,12 @@ public class GameWindow extends JFrame {
             mBtn,
             pBtn;
 
+    /*
+    * Constructor of the game window.
+    *
+    * @param width      width of the game window
+    * @param height     height of the game window
+    */
     public GameWindow(int width, int height) {
         ActionListener a = (ActionEvent e)-> {
             if (e.getSource() == clearBtn) {
@@ -84,7 +90,7 @@ public class GameWindow extends JFrame {
     /*
     * Simple set method for setting player names String array into GameWindow.
     *
-    * @param        String array with player names in it
+    * @param p      String array with player names in it
     */
     public void setPlayers(String[] p) {
         this.players = p;
