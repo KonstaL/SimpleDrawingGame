@@ -1,6 +1,6 @@
 import javax.swing.*;
 public class CountdownTimer extends JLabel {
-    private int remainingTime = 60;
+    private int remainingTime = 30;
     private Timer timer;
     public CountdownTimer() {
         timer = new Timer(1000, (e) -> {
@@ -11,8 +11,12 @@ public class CountdownTimer extends JLabel {
     public Timer getTimer() {
         return this.timer;
     }
-    public int getRemainingTime() {
-        return remainingTime;
+    public void setRemainingTime(int t) {
+        this.remainingTime = t;
+    }
+    public void resetTimer() {
+        setRemainingTime(30);
+        repaint();
     }
 
     @Override
