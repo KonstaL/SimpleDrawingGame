@@ -1,3 +1,7 @@
+/*
+* Class Player, used to represent individual players,
+* and their in game attributes.
+* */
 public class Player {
     private String name;
     private String guess;
@@ -5,7 +9,6 @@ public class Player {
 
     public Player(String s) {
         this.name = s;
-
     }
 
     public String getName() {
