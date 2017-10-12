@@ -47,20 +47,16 @@ public class GameWindow extends JFrame {
 
         JPanel colorContainer = new JPanel(new BorderLayout());
         JPanel buttonContainer = new JPanel();
+
         buttonContainer.setLayout(new BoxLayout(buttonContainer, BoxLayout.Y_AXIS));
         buttonContainer.setBorder(BorderFactory.createEmptyBorder(10,10,10,45));
-       
-
         buttonContainer.add(clearBtn);
         buttonContainer.add(Box.createRigidArea(new Dimension(0,5)));
-      
-
-        JPanel controls = new JPanel();
         buttonContainer.add(mBtn);
         buttonContainer.add(Box.createRigidArea(new Dimension(0,5)));
         buttonContainer.add(pBtn);
         buttonContainer.add(Box.createRigidArea(new Dimension(0,5)));
-
+      
         JColorChooser jcl = new JColorChooser();
       
         AbstractColorChooserPanel[] panels = jcl.getChooserPanels();
