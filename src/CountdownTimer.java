@@ -1,4 +1,8 @@
 import javax.swing.*;
+/*
+* CountdownTimer class is used to graphically represent a countdown clock
+* on the GUI.
+* */
 public class CountdownTimer extends JLabel {
     private int remainingTime = 30;
     private Timer timer;
