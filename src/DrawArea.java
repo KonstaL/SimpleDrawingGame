@@ -101,6 +101,9 @@ class DrawArea extends JComponent {
             brushSize--;
         }
     }
+    public void setColor(Color c) {
+        g2.setPaint(c);
+    }
 
     public void increaseBrush() {
         brushSize++;
