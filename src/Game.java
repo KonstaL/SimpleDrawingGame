@@ -3,6 +3,7 @@ public class Game {
     private GameWindow window;
     private String currentAnswer;
     private int currentPlayer = 0;
+
     public Game() {
         window = new GameWindow(600, 600);
         window.setPlayers(window.askUsername(window));
@@ -15,19 +16,20 @@ public class Game {
         );
     }
 
-    public String getCurrentAnswer() {
+    private String getCurrentAnswer() {
         return currentAnswer;
     }
 
-    public void setCurrentAnswer(String currentAnswer) {
+    private void setCurrentAnswer(String currentAnswer) {
         this.currentAnswer = currentAnswer;
     }
 
-    public int getCurrentPlayer() {
+    private int getCurrentPlayer() {
         return currentPlayer;
     }
 
-    public void setCurrentPlayer(int currentPlayer) {
+    private void setCurrentPlayer(int currentPlayer) {
         this.currentPlayer = currentPlayer;
     }
+
 }
