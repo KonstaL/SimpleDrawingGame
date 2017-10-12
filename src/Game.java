@@ -42,16 +42,20 @@ public class Game {
             getPlayerGuess();
             checkCorrectAnswers();
             if(displayScores() != 1) {
-                gameActive = false;
-                window.getDrawArea().clear();
-                try {
-                    Thread.sleep(200);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                window.dispatchEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSING));
+                initSystemShutdown();
             }
         }
+    }
+
+    private void initSystemShutdown() {
+        gameActive = false;
+        window.getDrawArea().clear();
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        window.dispatchEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSING));
     }
     /*
     * The setCurrentPlayer() method randomly sets which player draws next,
