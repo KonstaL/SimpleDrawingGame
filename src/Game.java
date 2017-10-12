@@ -30,16 +30,19 @@ public class Game {
     * carrying out all necessary gameplay operations concerning player input.
     * */
     private void initGame() {
+        CountdownTimer windowTimer = window.getCt();
         while(gameActive) {
             setCurrentPlayer();
             setCurrentAnswer(
                     JOptionPane.showInputDialog(window, currentPlayer.getName() + "\nWhat are you drawing?"));
-            window.getCt().getTimer().start();
+            windowTimer.getTimer().start();
             try {
-                Thread.sleep(60000);
+                Thread.sleep(30000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            windowTimer.getTimer().stop();
+            windowTimer.resetTimer();
             getPlayerGuess();
             checkCorrectAnswers();
             if(displayScores() != 1) {
