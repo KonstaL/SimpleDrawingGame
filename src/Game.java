@@ -5,7 +5,7 @@ public class Game {
     private int currentPlayer = 0;
 
     public Game() {
-        window = new GameWindow(600, 600);
+        window = new GameWindow(800, 800);
         window.setPlayers(window.askUsername(window));
         initGame();
     }
