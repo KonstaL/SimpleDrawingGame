@@ -40,7 +40,10 @@ public class Game {
             }
             getPlayerGuess();
             checkCorrectAnswers();
-            displayScores();
+            if(displayScores() != 1) {
+                gameActive = false;
+            }
+
         }
     }
     /*
@@ -78,8 +81,18 @@ public class Game {
         });
     }
 
-    private void displayScores() {
-        JOptionPane.showMessageDialog(window, new JList(window.getPlayers().toArray()));
+    private int displayScores() {
+        Object[] options = {"Quit", "Continue"};
+        int wishToContinue = JOptionPane.showOptionDialog(window,
+                new JList<>(window.getPlayers().toArray()),
+                "Current scores",
+                2,
+                1,
+                null,
+                options,
+                options[1]);
+        return wishToContinue;
+
     }
 
 
