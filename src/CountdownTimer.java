@@ -23,6 +23,9 @@ public class CountdownTimer extends JLabel {
     public Timer getTimer() {
         return this.timer;
     }
+    /*
+    * Simple method for setting the remainingTime attribute
+    * */
     public void setRemainingTime(int t) {
         this.remainingTime = t;
     }
