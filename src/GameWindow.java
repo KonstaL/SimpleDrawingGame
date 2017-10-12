@@ -1,5 +1,5 @@
 import javax.swing.JFrame;
-import java.awt.BorderLayout;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.JPanel;
@@ -64,17 +64,19 @@ public class GameWindow extends JFrame {
 
         JPanel optionsContainer = new JPanel(new BorderLayout());
         JPanel colorContainer = new JPanel(new BorderLayout());
+        JPanel buttonContainer = new JPanel();
+        buttonContainer.setLayout(new BoxLayout(buttonContainer, BoxLayout.Y_AXIS));
 
         JPanel colorSelect = new JPanel();
-        colorSelect.add(clearBtn);
+        buttonContainer.add(clearBtn);
         colorSelect.add(blackBtn);
         colorSelect.add(redBtn);
         colorSelect.add(greenBtn);
         colorSelect.add(blueBtn);
 
         JPanel controls = new JPanel();
-        controls.add(mBtn);
-        controls.add(pBtn);
+        buttonContainer.add(mBtn);
+        buttonContainer.add(pBtn);
 
         JColorChooser jcl = new JColorChooser();
       
@@ -106,7 +108,8 @@ public class GameWindow extends JFrame {
         optionsContainer.add(colorSelect, BorderLayout.NORTH);
         optionsContainer.add(controls, BorderLayout.SOUTH);
 
-        colorContainer.add(jcl, BorderLayout.WEST);
+        colorContainer.add(jcl, BorderLayout.CENTER);
+        colorContainer.add(buttonContainer, BorderLayout.EAST);
 
         add(colorContainer, BorderLayout.SOUTH);
         add(optionsContainer, BorderLayout.NORTH);
