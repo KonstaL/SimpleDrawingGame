@@ -43,6 +43,7 @@ class DrawArea extends JComponent {
 
                 // Draw line if g2 content not null
                 if (g2 != null) {
+                    // Draws more lines under the first one based on brush size.
                     for(int i = 0; i < brushSize; i++) {
                         g2.drawLine(oldX + i, oldY + i, currentX + i, currentY + i);
                     }
@@ -57,6 +58,9 @@ class DrawArea extends JComponent {
         });
     }
 
+    /*
+    * Painting method that draws image based on drawings made in mouseDragged.
+    */
     protected void paintComponent(Graphics g) {
         if (image == null) {
             // Image to draw null ==> we create
