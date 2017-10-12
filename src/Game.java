@@ -1,8 +1,7 @@
-
 import javax.swing.JOptionPane;
 import java.util.List;
 /*
-* The class Game initates the main GameWindow and dialog to ask players
+* The class Game initiates the main GameWindow and dialog to ask players
 * usernames.
 */
 
@@ -20,7 +19,10 @@ public class Game {
         Thread t = new Thread(this::initGame);
         t.start();
     }
-
+    /*
+    * The initGame method functions as a "game loop",
+    * carrying out all necessary gameplay operations concerning player input.
+    * */
     private void initGame() {
         while(gameActive) {
             setCurrentPlayer();
