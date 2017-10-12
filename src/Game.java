@@ -13,6 +13,11 @@ public class Game {
     private Player currentPlayer;
     private Player tempPlayer;
 
+    /*
+    * The class Game constructor initializes the gamewindow,
+    * initializes current players and their usernames,
+    * and starts the initGame() methods game loop inside a thread.
+    * */
     public Game() {
         window = new GameWindow(800, 800);
         window.setPlayers(window.askUsername(window));
