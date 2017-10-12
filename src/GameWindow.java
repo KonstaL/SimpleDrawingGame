@@ -1,12 +1,8 @@
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.JColorChooser;
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.colorchooser.*;
 import javax.swing.event.ChangeEvent;
 
@@ -76,12 +72,16 @@ public class GameWindow extends JFrame {
         colorContainer.add(buttonContainer, BorderLayout.EAST);
 
         ct = new CountdownTimer();
+        ct.setPreferredSize(new Dimension(50, 50));
+        ct.setFont(new Font("Mono", Font.BOLD, 40));
+        ct.setHorizontalAlignment(JLabel.CENTER);
+        ct.setForeground(Color.magenta);
+
         add(ct, BorderLayout.PAGE_START);
         add(colorContainer, BorderLayout.SOUTH);
         add(drawArea, BorderLayout.CENTER);
         setVisible(true);
     }
-
 
     /*
     * Method for getting draw area.
