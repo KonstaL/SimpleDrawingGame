@@ -32,6 +32,7 @@ public class Game {
                 e.printStackTrace();
             }
             getPlayerGuess();
+            checkCorrectAnswers();
         }
     }
 
@@ -48,6 +49,13 @@ public class Game {
         window.getPlayers().stream().forEach(p -> {
             if(!(p.getName().equals(currentPlayer.getName()))) {
                 p.setGuess(JOptionPane.showInputDialog(window, "Guess!"));
+            }
+        });
+    }
+    private void checkCorrectAnswers() {
+        window.getPlayers().stream().forEach(p -> {
+            if(!(p.getName().equals(currentPlayer.getName())) && p.getGuess().equals(getCurrentAnswer())) {
+                p.setPoints(1);
             }
         });
     }
