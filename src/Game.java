@@ -1,5 +1,14 @@
+
 import javax.swing.JOptionPane;
+=======
+/*
+* The class Game initates the main GameWindow and dialog to ask players
+* usernames.
+*/
+
 public class Game {
+
+    // Main game window
     private GameWindow window;
     private String currentAnswer;
     private int currentPlayer = 0;

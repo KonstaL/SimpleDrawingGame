@@ -12,6 +12,9 @@ import javax.swing.Box;
 import javax.swing.BorderFactory;
 import javax.swing.event.ChangeEvent;
 
+/*
+* The GameWindow class extends JFrame to hold all the buttons and controls of the game.
+*/
 public class GameWindow extends JFrame {
     private DrawArea drawArea;
     private String[] players;
@@ -19,6 +22,12 @@ public class GameWindow extends JFrame {
             mBtn,
             pBtn;
 
+    /*
+    * Constructor of the game window.
+    *
+    * @param width      width of the game window
+    * @param height     height of the game window
+    */
     public GameWindow(int width, int height) {
         ActionListener a = (ActionEvent e)-> {
             if (e.getSource() == clearBtn) {
@@ -67,13 +76,30 @@ public class GameWindow extends JFrame {
         setVisible(true);
     }
 
+    /*
+    * Simple set method for setting player names String array into GameWindow.
+    *
+    * @param p      String array with player names in it
+    */
     public void setPlayers(String[] p) {
         this.players = p;
     }
+
+    /*
+    * Simple get method for string array of player names in the GameWindow.
+    *
+    * @return       player names in a String array
+    */
     public String[] getPlayers() {
         return this.players;
     }
 
+    /*
+    * Ask the username of the players playing the game. Shows dialog popups.
+    *
+    * @param parent     the parent Component where the user input dialog is added to
+    * @return           players names in a String array
+    */
     public String[] askUsername(Component parent) {
         String[] players = new String[2]; //Hardcoded to string and limited to 2 for now
         do {
