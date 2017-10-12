@@ -84,6 +84,12 @@ public class GameWindow extends JFrame {
     public void setPlayers(String[] p) {
         this.players = p;
     }
+
+    /*
+    * Simple get method for string array of player names.
+    *
+    * @return       player names in a Strin array
+    */
     public String[] getPlayers() {
         return this.players;
     }
@@ -92,7 +98,7 @@ public class GameWindow extends JFrame {
     * Ask the username of the players playing the game. Shows dialog popups.
     *
     * @param parent     the parent Component where the user input dialog is added to
-    * @return           players names in a Sgtring array
+    * @return           players names in a String array
     */
     public String[] askUsername(Component parent) {
         String[] players = new String[2]; //Hardcoded to string and limited to 2 for now
