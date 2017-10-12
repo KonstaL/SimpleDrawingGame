@@ -44,6 +44,8 @@ public class GameWindow extends JFrame {
         };
 
         setSize(width, height);
+        setResizable(false);
+        setTitle("Drawing game!");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         drawArea = new DrawArea();
@@ -59,14 +61,16 @@ public class GameWindow extends JFrame {
         JPanel colorContainer = new JPanel(new BorderLayout());
         JPanel buttonContainer = new JPanel();
 
-        buttonContainer.setLayout(new BoxLayout(buttonContainer, BoxLayout.Y_AXIS));
-        buttonContainer.setBorder(BorderFactory.createEmptyBorder(10,10,10,45));
+        buttonContainer.setLayout(new GridLayout(3,1));
+
         buttonContainer.add(clearBtn);
-        buttonContainer.add(Box.createVerticalGlue());
+        clearBtn.setAlignmentX(buttonContainer.CENTER_ALIGNMENT);
+
         buttonContainer.add(mBtn);
-        buttonContainer.add(Box.createVerticalGlue());
+        mBtn.setAlignmentX(buttonContainer.CENTER_ALIGNMENT);
+
         buttonContainer.add(pBtn);
-        buttonContainer.add(Box.createVerticalGlue());
+        pBtn.setAlignmentX(buttonContainer.CENTER_ALIGNMENT);
       
         JColorChooser jcl = initColorChooser();
        
@@ -103,9 +107,30 @@ public class GameWindow extends JFrame {
     * @return           players names in a String array
     */
     public List<Player> askUsername(Component parent) {
+        int n = 0;
+        List<Player> p = new ArrayList<>();
+
+        //Try to ask how many players there will be playing
         do {
-            players.add(new Player(JOptionPane.showInputDialog(parent, "Player " + (players.size() + 1) + "!" + "\nPlease enter name")));
-        } while (players.size() < 5);
+            try {
+                n = Integer.parseInt(JOptionPane.showInputDialog(parent, "How many players will be playing?"));
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+        } while(n < 2);
+
+        //For the amounth of player, ask for a username
+        for(int i = 0; i < n; i++) {
+            Player player;
+
+            //Ask a username until one is given
+            do {
+                player = new Player(JOptionPane.showInputDialog(parent, "Player " + (i+1) + "!\nPlease enter name"));
+            } while (player.getName().length() < 1);
+
+            //Add the player to the list that were going to return
+            p.add(player);
+        }
         return players;
     }
 
