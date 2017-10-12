@@ -96,6 +96,11 @@ public class GameWindow extends JFrame {
             }
         }
         jcl.setPreviewPanel(new JPanel());   
+
+        AbstractColorChooserPanel colorPanel = jcl.getChooserPanels()[0];
+        JPanel c = (JPanel) colorPanel.getComponent(0);
+        c.remove(2);
+        c.remove(1);
         
         optionsContainer.add(colorSelect, BorderLayout.NORTH);
         optionsContainer.add(controls, BorderLayout.SOUTH);
