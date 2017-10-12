@@ -7,6 +7,9 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.JOptionPane;
 
+/*
+* The GameWindow class extends JFrame to hold all the buttons and controls of the game.
+*/
 public class GameWindow extends JFrame {
     private DrawArea drawArea;
     private String[] players;
