@@ -121,6 +121,9 @@ class DrawArea extends JComponent {
         }
     }
 
+    /*
+    * Increases the brush size by 1.
+    */
     public void increaseBrush() {
         brushSize++;
     }
