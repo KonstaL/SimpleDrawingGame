@@ -1,5 +1,5 @@
 ----To implement----
--Timer functionality
+
 
 
 ----To Fix----
