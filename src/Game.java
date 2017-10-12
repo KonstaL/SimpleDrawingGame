@@ -34,8 +34,9 @@ public class Game {
             setCurrentPlayer();
             setCurrentAnswer(
                     JOptionPane.showInputDialog(window, currentPlayer.getName() + "\nWhat are you drawing?"));
+            window.getCt().getTimer().start();
             try {
-                Thread.sleep(10000);
+                Thread.sleep(60000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
