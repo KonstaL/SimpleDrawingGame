@@ -105,6 +105,9 @@ class DrawArea extends JComponent {
         g2.setPaint(Color.GREEN);
     }  
 
+    /*
+    * Sets the painting color to blue.
+    */
     public void blue() {
         g2.setPaint(Color.BLUE);
     }
