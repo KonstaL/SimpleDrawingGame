@@ -9,6 +9,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
+/*
+* The DrawArea class initates the drawing area of the game and handles all the functionality
+* that is included in the drawing, clearing, color change and brush size in the game. Acts as
+* a component in the GameWindow frame.
+*/
 class DrawArea extends JComponent {
 
     // Image in which we're going to draw
