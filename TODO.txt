@@ -4,7 +4,6 @@
 before letting player2 draw
 -Functionality where player2 can guess the drawing
 -Functionality where you can quit between rounds
--Functionality to change the size of the line to draw with
 
 
 ----To Fix----
@@ -12,4 +11,3 @@ before letting player2 draw
 -The initial JOptionPane crashes if you press "X" or "cancel"
 
 ----Performance issues----
--Increase performance in rendering points (it gets really slow after 50 or so points)
