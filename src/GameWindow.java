@@ -90,8 +90,12 @@ public class GameWindow extends JFrame {
                 case "CMYK":
                     jcl.removeChooserPanel(p);
                     break;
+                case "RGB":
+                    jcl.removeChooserPanel(p);
+                    break;
             }
         }
+        jcl.setPreviewPanel(new JPanel());   
         
         optionsContainer.add(colorSelect, BorderLayout.NORTH);
         optionsContainer.add(controls, BorderLayout.SOUTH);
