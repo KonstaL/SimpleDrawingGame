@@ -1,5 +1,4 @@
 import javax.swing.JFrame;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.JPanel;
@@ -9,8 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.colorchooser.*;
-import javax.swing.Box;
-import javax.swing.BorderFactory;
 import javax.swing.event.ChangeEvent;
 
 /*
