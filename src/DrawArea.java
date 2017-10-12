@@ -104,6 +104,9 @@ class DrawArea extends JComponent {
             brushSize--;
         }
     }
+    /*
+    * Method for setting brush color.
+    * */
     public void setColor(Color c) {
         g2.setPaint(c);
     }
