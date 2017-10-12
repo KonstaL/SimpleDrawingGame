@@ -44,6 +44,7 @@ public class GameWindow extends JFrame {
         };
 
         setSize(width, height);
+        setResizable(false);
         setTitle("Drawing game!");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
