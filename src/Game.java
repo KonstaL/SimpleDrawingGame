@@ -46,7 +46,9 @@ public class Game {
             }
         }
     }
-
+    /*
+    * The initSystemShutdown() method closes the application
+    * */
     private void initSystemShutdown() {
         gameActive = false;
         window.getDrawArea().clear();
