@@ -57,36 +57,8 @@ public class GameWindow extends JFrame {
         buttonContainer.add(pBtn);
         buttonContainer.add(Box.createRigidArea(new Dimension(0,5)));
       
-        JColorChooser jcl = new JColorChooser();
-      
-        AbstractColorChooserPanel[] panels = jcl.getChooserPanels();
-        for(AbstractColorChooserPanel p:panels) {
-            String displayName=p.getDisplayName();
-            switch (displayName) {
-                case "HSV":
-                    jcl.removeChooserPanel(p);
-                    break;
-                case "HSL":
-                    jcl.removeChooserPanel(p);
-                    break;
-                case "CMYK":
-                    jcl.removeChooserPanel(p);
-                    break;
-                case "RGB":
-                    jcl.removeChooserPanel(p);
-                    break;
-            }
-        }
-        jcl.setPreviewPanel(new JPanel());  
-        jcl.getSelectionModel().addChangeListener((ChangeEvent e) -> drawArea.setColor(jcl.getColor()));
-
-        AbstractColorChooserPanel colorPanel = jcl.getChooserPanels()[0];
-        JPanel c = (JPanel) colorPanel.getComponent(0);
-        c.remove(2);
-        c.remove(1);
-        
-     
-
+        JColorChooser jcl = initColorChooser();
+       
         colorContainer.add(jcl, BorderLayout.CENTER);
         colorContainer.add(buttonContainer, BorderLayout.EAST);
 
@@ -109,5 +81,36 @@ public class GameWindow extends JFrame {
             players[1] = JOptionPane.showInputDialog(parent, "Player 2!\nPlease enter name");
         } while (players[0].length() <= 0 || players[1].length() <= 0);
         return players;
+    }
+    public JColorChooser initColorChooser() {
+        JColorChooser jcl = new JColorChooser();
+        
+          AbstractColorChooserPanel[] panels = jcl.getChooserPanels();
+          for(AbstractColorChooserPanel p:panels) {
+              String displayName=p.getDisplayName();
+              switch (displayName) {
+                  case "HSV":
+                      jcl.removeChooserPanel(p);
+                      break;
+                  case "HSL":
+                      jcl.removeChooserPanel(p);
+                      break;
+                  case "CMYK":
+                      jcl.removeChooserPanel(p);
+                      break;
+                  case "RGB":
+                      jcl.removeChooserPanel(p);
+                      break;
+              }
+          }
+          jcl.setPreviewPanel(new JPanel());  
+          jcl.getSelectionModel().addChangeListener((ChangeEvent e) -> drawArea.setColor(jcl.getColor()));
+  
+          AbstractColorChooserPanel colorPanel = jcl.getChooserPanels()[0];
+          JPanel c = (JPanel) colorPanel.getComponent(0);
+          c.remove(2);
+          c.remove(1);
+        
+          return jcl;
     }
 }
