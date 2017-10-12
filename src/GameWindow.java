@@ -83,7 +83,11 @@ public class GameWindow extends JFrame {
     }
 
 
-
+    /*
+    * Method for getting draw area.
+    *
+    * @return       instance of DrawArea class
+    * */
     public DrawArea getDrawArea() {
         return drawArea;
     }
