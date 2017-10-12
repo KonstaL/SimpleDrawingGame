@@ -81,14 +81,19 @@ public class GameWindow extends JFrame {
         setVisible(true);
     }
 
+    /*
+    * Simple set method for setting player names String array into GameWindow.
+    *
+    * @param        String array with player names in it
+    */
     public void setPlayers(String[] p) {
         this.players = p;
     }
 
     /*
-    * Simple get method for string array of player names.
+    * Simple get method for string array of player names in the GameWindow.
     *
-    * @return       player names in a Strin array
+    * @return       player names in a String array
     */
     public String[] getPlayers() {
         return this.players;
