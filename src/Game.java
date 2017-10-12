@@ -31,7 +31,25 @@ public class Game {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            getPlayerGuess();
         }
+    }
+
+    private void setCurrentPlayer() {
+        List<Player> p = window.getPlayers();
+        currentPlayer = p.get((int)(Math.random()*p.size()) + 0);
+        while(tempPlayer != null && tempPlayer.getName().equals(currentPlayer.getName())) {
+            currentPlayer = p.get((int)(Math.random()*p.size()) + 0);
+        }
+        tempPlayer = currentPlayer;
+    }
+
+    private void getPlayerGuess() {
+        window.getPlayers().stream().forEach(p -> {
+            if(!(p.getName().equals(currentPlayer.getName()))) {
+                p.setGuess(JOptionPane.showInputDialog(window, "Guess!"));
+            }
+        });
     }
 
     private String getCurrentAnswer() {
@@ -45,14 +63,4 @@ public class Game {
     private Player getCurrentPlayer() {
         return currentPlayer;
     }
-
-    private void setCurrentPlayer() {
-        List<Player> p = window.getPlayers();
-        currentPlayer = p.get((int)(Math.random()*p.size()) + 0);
-        while(tempPlayer != null && tempPlayer.getName().equals(currentPlayer.getName())) {
-            currentPlayer = p.get((int)(Math.random()*p.size()) + 0);
-        }
-        tempPlayer = currentPlayer;
-    }
-
 }
