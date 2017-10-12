@@ -68,8 +68,6 @@ public class Game {
         window.getPlayers().stream().forEach(p -> {
             if(!(p.getName().equals(currentPlayer.getName())) && p.getGuess().equals(getCurrentAnswer())) {
                 p.setPoints(1);
-            } else {
-                System.out.println("No correct answers");
             }
         });
     }
