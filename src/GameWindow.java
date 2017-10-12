@@ -63,6 +63,7 @@ public class GameWindow extends JFrame {
         pBtn.addActionListener(a);
 
         JPanel optionsContainer = new JPanel(new BorderLayout());
+        JPanel colorContainer = new JPanel(new BorderLayout());
 
         JPanel colorSelect = new JPanel();
         colorSelect.add(clearBtn);
@@ -76,7 +77,7 @@ public class GameWindow extends JFrame {
         controls.add(pBtn);
 
         JColorChooser jcl = new JColorChooser();
-        
+      
         AbstractColorChooserPanel[] panels = jcl.getChooserPanels();
         for(AbstractColorChooserPanel p:panels) {
             String displayName=p.getDisplayName();
@@ -105,7 +106,9 @@ public class GameWindow extends JFrame {
         optionsContainer.add(colorSelect, BorderLayout.NORTH);
         optionsContainer.add(controls, BorderLayout.SOUTH);
 
-        add(jcl, BorderLayout.SOUTH);
+        colorContainer.add(jcl, BorderLayout.WEST);
+
+        add(colorContainer, BorderLayout.SOUTH);
         add(optionsContainer, BorderLayout.NORTH);
         add(drawArea, BorderLayout.CENTER);
         setVisible(true);
