@@ -9,6 +9,7 @@ import java.awt.event.*;
 import javax.swing.JOptionPane;
 import javax.swing.colorchooser.*;
 import javax.swing.Box;
+import javax.swing.BorderFactory;
 
 public class GameWindow extends JFrame {
     private DrawArea drawArea;
@@ -67,6 +68,7 @@ public class GameWindow extends JFrame {
         JPanel colorContainer = new JPanel(new BorderLayout());
         JPanel buttonContainer = new JPanel();
         buttonContainer.setLayout(new BoxLayout(buttonContainer, BoxLayout.Y_AXIS));
+        buttonContainer.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         buttonContainer.add(Box.createRigidArea(new Dimension(0,5)));
 
         JPanel colorSelect = new JPanel();
