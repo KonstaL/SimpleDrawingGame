@@ -52,12 +52,11 @@ class DrawArea extends JComponent {
                     for(int i = 0; i < brushSize; i++) {
                         g2.drawLine(currentX-brushSize/2+i, currentY + brushSize/2, currentX - brushSize/2, currentY - brushSize/2 );
                         g2.drawLine(currentX-brushSize/2+i, currentY - brushSize/2 +1, currentX + brushSize/2, currentY + brushSize/2 );
-                        
-                      
                     }
                     
                     // Repaint to refresh draw area
                     repaint();
+                    
                     // Set old coords x,y as current coords x,y
                     oldX = currentX;
                     oldY = currentY;

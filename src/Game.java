@@ -1,4 +1,3 @@
-
 import javax.swing.JOptionPane;
 import java.util.List;
 /*
@@ -7,7 +6,7 @@ import java.util.List;
 */
 
 public class Game {
-
+    
     private GameWindow window;
     private boolean gameActive = true;
     private String currentAnswer;
@@ -25,7 +24,7 @@ public class Game {
         while(gameActive) {
             setCurrentPlayer();
             setCurrentAnswer(
-                    JOptionPane.showInputDialog(window, currentPlayer.getName() + "\nWhat are you drawing?"));
+                JOptionPane.showInputDialog(window, currentPlayer.getName() + "\nWhat are you drawing?"));
             try {
                 Thread.sleep(10000);
             } catch (InterruptedException e) {
@@ -54,5 +53,4 @@ public class Game {
         }
         tempPlayer = currentPlayer;
     }
-
 }
