@@ -33,4 +33,8 @@ public class Player {
     public void setGuess(String guess) {
         this.guess = guess;
     }
+    @Override
+    public String toString() {
+        return this.getName() + ": " + this.getPoints();
+    }
 }
