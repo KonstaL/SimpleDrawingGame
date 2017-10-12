@@ -51,11 +51,11 @@ public class GameWindow extends JFrame {
         buttonContainer.setLayout(new BoxLayout(buttonContainer, BoxLayout.Y_AXIS));
         buttonContainer.setBorder(BorderFactory.createEmptyBorder(10,10,10,45));
         buttonContainer.add(clearBtn);
-        buttonContainer.add(Box.createRigidArea(new Dimension(0,5)));
+        buttonContainer.add(Box.createVerticalGlue());
         buttonContainer.add(mBtn);
-        buttonContainer.add(Box.createRigidArea(new Dimension(0,5)));
+        buttonContainer.add(Box.createVerticalGlue());
         buttonContainer.add(pBtn);
-        buttonContainer.add(Box.createRigidArea(new Dimension(0,5)));
+        buttonContainer.add(Box.createVerticalGlue());
       
         JColorChooser jcl = initColorChooser();
        
@@ -82,6 +82,7 @@ public class GameWindow extends JFrame {
         } while (players[0].length() <= 0 || players[1].length() <= 0);
         return players;
     }
+
     public JColorChooser initColorChooser() {
         JColorChooser jcl = new JColorChooser();
         
