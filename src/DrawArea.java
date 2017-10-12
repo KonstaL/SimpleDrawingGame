@@ -3,7 +3,6 @@ import java.awt.event.MouseEvent;
 import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseMotionAdapter;
-import java.awt.event.MouseMotionListener;
 import java.awt.Image;
 import java.awt.Color;
 import java.awt.Graphics;
