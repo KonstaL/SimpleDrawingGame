@@ -63,11 +63,13 @@ public class GameWindow extends JFrame {
         buttonContainer.setLayout(new BoxLayout(buttonContainer, BoxLayout.Y_AXIS));
         buttonContainer.setBorder(BorderFactory.createEmptyBorder(10,10,10,45));
         buttonContainer.add(clearBtn);
+        clearBtn.setAlignmentX(buttonContainer.CENTER_ALIGNMENT);
         buttonContainer.add(Box.createVerticalGlue());
         buttonContainer.add(mBtn);
+        mBtn.setAlignmentX(buttonContainer.CENTER_ALIGNMENT);
         buttonContainer.add(Box.createVerticalGlue());
         buttonContainer.add(pBtn);
-        buttonContainer.add(Box.createVerticalGlue());
+        pBtn.setAlignmentX(buttonContainer.CENTER_ALIGNMENT);
       
         JColorChooser jcl = initColorChooser();
        
