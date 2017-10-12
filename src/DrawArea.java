@@ -9,6 +9,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
+/*
+* The DrawArea class initates the drawing area of the game and handles all the functionality
+* that is included in the drawing, clearing, color change and brush size in the game. Acts as
+* a component in the GameWindow frame.
+*/
 class DrawArea extends JComponent {
 
     // Image in which we're going to draw
@@ -43,6 +48,7 @@ class DrawArea extends JComponent {
 
                 // Draw line if g2 content not null
                 if (g2 != null) {
+                    // Draws more lines under the first one based on brush size.
                     for(int i = 0; i < brushSize; i++) {
                         g2.drawLine(oldX + i, oldY + i, currentX + i, currentY + i);
                     }
@@ -57,6 +63,11 @@ class DrawArea extends JComponent {
         });
     }
 
+    /*
+    * Painting method that draws image based on drawings made in mouseDragged.
+    * 
+    * @param g      graphics that are set to be painted
+    */
     protected void paintComponent(Graphics g) {
         if (image == null) {
             // Image to draw null ==> we create
@@ -72,6 +83,10 @@ class DrawArea extends JComponent {
 
     }
 
+    /*
+    * Simple method to repaint the shole draw area white and set the
+    * painting color black.
+    */
     public void clear() {
        g2.setPaint(Color.WHITE);
        // Draw white on entire draw area to clear
@@ -80,28 +95,46 @@ class DrawArea extends JComponent {
        repaint(); 
     }
 
+    /*
+    * Sets the painting color to black.
+    */
     public void black() {
         g2.setPaint(Color.BLACK);
     }
 
+    /*
+    * Sets the painting color to red.
+    */
     public void red() {
         g2.setPaint(Color.RED);
     }
 
+    /*
+    * Sets the painting color to green.
+    */
     public void green() {
         g2.setPaint(Color.GREEN);
     }  
 
+    /*
+    * Sets the painting color to blue.
+    */
     public void blue() {
         g2.setPaint(Color.BLUE);
     }
 
+    /*
+    * Reduces the brush size by 1.
+    */
     public void reduceBrush() {
         if(brushSize > 1) {
             brushSize--;
         }
     }
 
+    /*
+    * Increases the brush size by 1.
+    */
     public void increaseBrush() {
         brushSize++;
     }
