@@ -56,7 +56,7 @@ public class Game {
     private void getPlayerGuess() {
         window.getPlayers().stream().forEach(p -> {
             if(!(p.getName().equals(currentPlayer.getName()))) {
-                p.setGuess(JOptionPane.showInputDialog(window, "Guess!"));
+                p.setGuess(JOptionPane.showInputDialog(window, p.getName() + "'s turn to guess!"));
             }
         });
     }
@@ -68,6 +68,8 @@ public class Game {
         window.getPlayers().stream().forEach(p -> {
             if(!(p.getName().equals(currentPlayer.getName())) && p.getGuess().equals(getCurrentAnswer())) {
                 p.setPoints(1);
+            } else {
+                System.out.println("No correct answers");
             }
         });
     }
