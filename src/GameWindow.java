@@ -1,11 +1,13 @@
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.JOptionPane;
+import javax.swing.colorchooser.*;
 
 public class GameWindow extends JFrame {
     private DrawArea drawArea;
@@ -73,9 +75,13 @@ public class GameWindow extends JFrame {
         controls.add(mBtn);
         controls.add(pBtn);
 
+        JColorChooser jcl = new JColorChooser();
+        
+        
         optionsContainer.add(colorSelect, BorderLayout.NORTH);
         optionsContainer.add(controls, BorderLayout.SOUTH);
 
+        add(jcl, BorderLayout.SOUTH);
         add(optionsContainer, BorderLayout.NORTH);
         add(drawArea, BorderLayout.CENTER);
         setVisible(true);
