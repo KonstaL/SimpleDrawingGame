@@ -72,6 +72,9 @@ class DrawArea extends JComponent {
 
     }
 
+    /*
+    * Simple method to repaint the shole draw area white.
+    */
     public void clear() {
        g2.setPaint(Color.WHITE);
        // Draw white on entire draw area to clear
