@@ -37,7 +37,10 @@ public class Game {
             checkCorrectAnswers();
         }
     }
-
+    /*
+    * The setCurrentPlayer() method randomly sets which player draws next,
+    * excluding the person that drew the last image.
+    * */
     private void setCurrentPlayer() {
         List<Player> p = window.getPlayers();
         currentPlayer = p.get((int)(Math.random()*p.size()) + 0);
