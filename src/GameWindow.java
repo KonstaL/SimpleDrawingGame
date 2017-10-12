@@ -1,11 +1,16 @@
 import javax.swing.JFrame;
-import java.awt.BorderLayout;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.JOptionPane;
+import javax.swing.colorchooser.*;
+import javax.swing.Box;
+import javax.swing.BorderFactory;
+import javax.swing.event.ChangeEvent;
 
 /*
 * The GameWindow class extends JFrame to hold all the buttons and controls of the game.
@@ -14,10 +19,6 @@ public class GameWindow extends JFrame {
     private DrawArea drawArea;
     private String[] players;
     JButton clearBtn,
-            blackBtn,
-            redBtn,
-            greenBtn,
-            blueBtn,
             mBtn,
             pBtn;
 
@@ -31,14 +32,6 @@ public class GameWindow extends JFrame {
         ActionListener a = (ActionEvent e)-> {
             if (e.getSource() == clearBtn) {
                 drawArea.clear();
-            } else if (e.getSource() == blackBtn) {
-                drawArea.black();
-            } else if (e.getSource() == redBtn) {
-                drawArea.red();
-            } else if (e.getSource() == greenBtn) {
-                drawArea.green();
-            } else if (e.getSource() == blueBtn) {
-                drawArea.blue();
             } else if (e.getSource() == mBtn) {
                 drawArea.reduceBrush();
             } else if (e.getSource() == pBtn) {
@@ -54,38 +47,31 @@ public class GameWindow extends JFrame {
         drawArea = new DrawArea();
 
         clearBtn = new JButton("Clear");
-        blackBtn = new JButton("Black");
-        redBtn = new JButton("Red");
-        greenBtn = new JButton("Green");
-        blueBtn = new JButton("Blue");
         mBtn = new JButton("-");
         pBtn = new JButton("+");
 
-        redBtn.addActionListener(a);
-        greenBtn.addActionListener(a);
-        blackBtn.addActionListener(a);
         clearBtn.addActionListener(a);
-        blueBtn.addActionListener(a);
         mBtn.addActionListener(a);
         pBtn.addActionListener(a);
 
-        JPanel optionsContainer = new JPanel(new BorderLayout());
+        JPanel colorContainer = new JPanel(new BorderLayout());
+        JPanel buttonContainer = new JPanel();
 
-        JPanel colorSelect = new JPanel();
-        colorSelect.add(clearBtn);
-        colorSelect.add(blackBtn);
-        colorSelect.add(redBtn);
-        colorSelect.add(greenBtn);
-        colorSelect.add(blueBtn);
+        buttonContainer.setLayout(new BoxLayout(buttonContainer, BoxLayout.Y_AXIS));
+        buttonContainer.setBorder(BorderFactory.createEmptyBorder(10,10,10,45));
+        buttonContainer.add(clearBtn);
+        buttonContainer.add(Box.createVerticalGlue());
+        buttonContainer.add(mBtn);
+        buttonContainer.add(Box.createVerticalGlue());
+        buttonContainer.add(pBtn);
+        buttonContainer.add(Box.createVerticalGlue());
+      
+        JColorChooser jcl = initColorChooser();
+       
+        colorContainer.add(jcl, BorderLayout.CENTER);
+        colorContainer.add(buttonContainer, BorderLayout.EAST);
 
-        JPanel controls = new JPanel();
-        controls.add(mBtn);
-        controls.add(pBtn);
-
-        optionsContainer.add(colorSelect, BorderLayout.NORTH);
-        optionsContainer.add(controls, BorderLayout.SOUTH);
-
-        add(optionsContainer, BorderLayout.NORTH);
+        add(colorContainer, BorderLayout.SOUTH);
         add(drawArea, BorderLayout.CENTER);
         setVisible(true);
     }
@@ -121,5 +107,37 @@ public class GameWindow extends JFrame {
             players[1] = JOptionPane.showInputDialog(parent, "Player 2!\nPlease enter name");
         } while (players[0].length() <= 0 || players[1].length() <= 0);
         return players;
+    }
+
+    public JColorChooser initColorChooser() {
+        JColorChooser jcl = new JColorChooser();
+        
+          AbstractColorChooserPanel[] panels = jcl.getChooserPanels();
+          for(AbstractColorChooserPanel p:panels) {
+              String displayName=p.getDisplayName();
+              switch (displayName) {
+                  case "HSV":
+                      jcl.removeChooserPanel(p);
+                      break;
+                  case "HSL":
+                      jcl.removeChooserPanel(p);
+                      break;
+                  case "CMYK":
+                      jcl.removeChooserPanel(p);
+                      break;
+                  case "RGB":
+                      jcl.removeChooserPanel(p);
+                      break;
+              }
+          }
+          jcl.setPreviewPanel(new JPanel());  
+          jcl.getSelectionModel().addChangeListener((ChangeEvent e) -> drawArea.setColor(jcl.getColor()));
+  
+          AbstractColorChooserPanel colorPanel = jcl.getChooserPanels()[0];
+          JPanel c = (JPanel) colorPanel.getComponent(0);
+          c.remove(2);
+          c.remove(1);
+        
+          return jcl;
     }
 }
