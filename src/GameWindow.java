@@ -83,7 +83,7 @@ public class GameWindow extends JFrame {
     }
 
     /*
-    * Simple set method for setting player names String array into GameWindow.
+    * Simple set method for setting player names Player List into GameWindow.
     *
     * @param p      String array with player names in it
     */
@@ -94,7 +94,7 @@ public class GameWindow extends JFrame {
     /*
     * Simple get method for string array of player names in the GameWindow.
     *
-    * @return       player names in a String array
+    * @return       player names in a Player List
     */
     public List<Player> getPlayers() {
         return this.players;
@@ -118,7 +118,7 @@ public class GameWindow extends JFrame {
             }
         } while(n < 2);
 
-        //For the amounth of player, ask for a username
+        //Ask usernames according to n amount
         for(int i = 0; i < n; i++) {
             Player player;
 
@@ -129,7 +129,6 @@ public class GameWindow extends JFrame {
 
             //Add the player to the list that were going to return
             players.add(player);
-            System.out.println(players.size());
         }
         return players;
     }
