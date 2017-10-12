@@ -108,7 +108,6 @@ public class GameWindow extends JFrame {
     */
     public List<Player> askUsername(Component parent) {
         int n = 0;
-        List<Player> p = new ArrayList<>();
 
         //Try to ask how many players there will be playing
         do {
@@ -129,7 +128,8 @@ public class GameWindow extends JFrame {
             } while (player.getName().length() < 1);
 
             //Add the player to the list that were going to return
-            p.add(player);
+            players.add(player);
+            System.out.println(players.size());
         }
         return players;
     }
