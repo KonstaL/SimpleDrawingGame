@@ -6,6 +6,9 @@ import javax.swing.*;
 public class CountdownTimer extends JLabel {
     private int remainingTime = 30;
     private Timer timer;
+    /*
+    * Constructor method for CountdownTimer.
+    * */
     public CountdownTimer() {
         timer = new Timer(1000, (e) -> {
             remainingTime--;
