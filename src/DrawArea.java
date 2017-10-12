@@ -60,6 +60,8 @@ class DrawArea extends JComponent {
 
     /*
     * Painting method that draws image based on drawings made in mouseDragged.
+    * 
+    * @param g      graphics that are set to be painted
     */
     protected void paintComponent(Graphics g) {
         if (image == null) {
