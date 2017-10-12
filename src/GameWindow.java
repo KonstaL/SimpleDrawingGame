@@ -77,6 +77,21 @@ public class GameWindow extends JFrame {
 
         JColorChooser jcl = new JColorChooser();
         
+        AbstractColorChooserPanel[] panels = jcl.getChooserPanels();
+        for(AbstractColorChooserPanel p:panels) {
+            String displayName=p.getDisplayName();
+            switch (displayName) {
+                case "HSV":
+                    jcl.removeChooserPanel(p);
+                    break;
+                case "HSL":
+                    jcl.removeChooserPanel(p);
+                    break;
+                case "CMYK":
+                    jcl.removeChooserPanel(p);
+                    break;
+            }
+        }
         
         optionsContainer.add(colorSelect, BorderLayout.NORTH);
         optionsContainer.add(controls, BorderLayout.SOUTH);
