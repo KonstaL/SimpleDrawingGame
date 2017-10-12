@@ -22,9 +22,16 @@ public class Game {
     }
 
     private void initGame() {
-        setCurrentAnswer(
-                JOptionPane.showInputDialog(window, "Player " + getCurrentPlayer() + "\nWhat are you drawing?")
-        );
+        while(gameActive) {
+            setCurrentPlayer();
+            setCurrentAnswer(
+                    JOptionPane.showInputDialog(window, currentPlayer.getName() + "\nWhat are you drawing?"));
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private String getCurrentAnswer() {
@@ -35,7 +42,7 @@ public class Game {
         this.currentAnswer = currentAnswer;
     }
 
-    private int getCurrentPlayer() {
+    private Player getCurrentPlayer() {
         return currentPlayer;
     }
 
