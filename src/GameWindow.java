@@ -65,10 +65,10 @@ public class GameWindow extends JFrame {
 
         buttonContainer.add(clearBtn);
         clearBtn.setAlignmentX(buttonContainer.CENTER_ALIGNMENT);
-        
+
         buttonContainer.add(mBtn);
         mBtn.setAlignmentX(buttonContainer.CENTER_ALIGNMENT);
-     
+
         buttonContainer.add(pBtn);
         pBtn.setAlignmentX(buttonContainer.CENTER_ALIGNMENT);
       
@@ -108,8 +108,7 @@ public class GameWindow extends JFrame {
     */
     public List<Player> askUsername(Component parent) {
         int n = 0;
-        List<Player> p = new ArrayList<>();
-        
+
         //Try to ask how many players there will be playing
         do {
             try {
@@ -118,7 +117,7 @@ public class GameWindow extends JFrame {
                 e.printStackTrace();
             }
         } while(n < 2);
-        
+
         //For the amounth of player, ask for a username
         for(int i = 0; i < n; i++) {
             Player player;
@@ -126,10 +125,11 @@ public class GameWindow extends JFrame {
             //Ask a username until one is given
             do {
                 player = new Player(JOptionPane.showInputDialog(parent, "Player " + (i+1) + "!\nPlease enter name"));
-            } while (player.getName().length() < 1); 
+            } while (player.getName().length() < 1);
 
             //Add the player to the list that were going to return
-            p.add(player);
+            players.add(player);
+            System.out.println(players.size());
         }
         return players;
     }
