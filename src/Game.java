@@ -93,7 +93,10 @@ public class Game {
             }
         });
     }
-
+    /*
+    * The displayScores() method displays current game scores,
+    * and prompts players to either quit or continue playing.
+    * */
     private int displayScores() {
         Object[] options = {"Quit", "Continue"};
         int wishToContinue = JOptionPane.showOptionDialog(window,
