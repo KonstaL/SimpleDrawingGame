@@ -36,7 +36,11 @@ public class CountdownTimer extends JLabel {
         setRemainingTime(30);
         repaint();
     }
-
+    /*
+    * Overwritten method from class JLabel to get current JLabel text value
+    *
+    * @return       Return string representation of JLabel text
+    * */
     @Override
     public String getText() {
         return Integer.toString(remainingTime);
