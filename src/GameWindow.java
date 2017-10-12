@@ -118,10 +118,14 @@ public class GameWindow extends JFrame {
         } while(n < 2);
 
         for(int i = 0; i < n; i++) {
-            p.add(new Player(JOptionPane.showInputDialog(parent, "Player " + (i+1) + "!\nPlease enter name")));
+            Player player;
+            do {
+                player = new Player(JOptionPane.showInputDialog(parent, "Player " + (i+1) + "!\nPlease enter name"));
+            } while (player.getName().length() < 1); 
+
+            p.add(player);
         }
            
-       
         return players;
     }
 
