@@ -96,7 +96,9 @@ class DrawArea extends JComponent {
        g2.setPaint(Color.BLACK);
        repaint(); 
     }
-
+    /*
+    * Method for reducing brush size.
+    * */
     public void reduceBrush() {
         if(brushSize > 1) {
             brushSize--;
