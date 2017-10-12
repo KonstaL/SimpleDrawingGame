@@ -60,6 +60,10 @@ public class Game {
             }
         });
     }
+    /*
+    * The checkCorrectAnswers() method loops over all player answers (excluding current player),
+    * and checks if any of the guesses match the current answer.
+    * */
     private void checkCorrectAnswers() {
         window.getPlayers().stream().forEach(p -> {
             if(!(p.getName().equals(currentPlayer.getName())) && p.getGuess().equals(getCurrentAnswer())) {
