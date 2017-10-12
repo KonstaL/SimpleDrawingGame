@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.colorchooser.*;
 import javax.swing.Box;
 import javax.swing.BorderFactory;
+import javax.swing.event.ChangeEvent;
 
 public class GameWindow extends JFrame {
     private DrawArea drawArea;
@@ -106,7 +107,8 @@ public class GameWindow extends JFrame {
                     break;
             }
         }
-        jcl.setPreviewPanel(new JPanel());   
+        jcl.setPreviewPanel(new JPanel());  
+        jcl.getSelectionModel().addChangeListener((ChangeEvent e) -> drawArea.setColor(jcl.getColor()));
 
         AbstractColorChooserPanel colorPanel = jcl.getChooserPanels()[0];
         JPanel c = (JPanel) colorPanel.getComponent(0);
