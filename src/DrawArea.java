@@ -80,22 +80,6 @@ class DrawArea extends JComponent {
        repaint(); 
     }
 
-    public void black() {
-        g2.setPaint(Color.BLACK);
-    }
-
-    public void red() {
-        g2.setPaint(Color.RED);
-    }
-
-    public void green() {
-        g2.setPaint(Color.GREEN);
-    }  
-
-    public void blue() {
-        g2.setPaint(Color.BLUE);
-    }
-
     public void reduceBrush() {
         if(brushSize > 1) {
             brushSize--;
