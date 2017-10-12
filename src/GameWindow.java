@@ -44,6 +44,7 @@ public class GameWindow extends JFrame {
         };
 
         setSize(width, height);
+        setTitle("Drawing game!");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         drawArea = new DrawArea();
