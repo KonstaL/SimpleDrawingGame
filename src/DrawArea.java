@@ -99,7 +99,7 @@ class DrawArea extends JComponent {
     }
 
     /*
-    *
+    * Sets the painting color to green.
     */
     public void green() {
         g2.setPaint(Color.GREEN);
