@@ -107,14 +107,17 @@ public class GameWindow extends JFrame {
     * @return           players names in a String array
     */
     public List<Player> askUsername(Component parent) {
-        int p;
+        int n;
+        List<Player> p = new ArrayList<>();
         do {
-            p = Integer.parseInt(JOptionPane.showInputDialog(parent, "How many players will be playing?"));
-        } while(p < 2);
-        do {
-            players.add(new Player(JOptionPane.showInputDialog(parent, "Player 1!\nPlease enter name")));
-            players.add(new Player(JOptionPane.showInputDialog(parent, "Player 2!\nPlease enter name")));
-        } while (players.size() < 2);
+            n = Integer.parseInt(JOptionPane.showInputDialog(parent, "How many players will be playing?"));
+        } while(n < 2);
+
+        for(int i = 0; i < n; i++) {
+            p.add(new Player(JOptionPane.showInputDialog(parent, "Player " + (i+1) + "!\nPlease enter name")));
+        }
+           
+       
         return players;
     }
 
