@@ -1,5 +1,6 @@
 
 import javax.swing.JOptionPane;
+import java.util.List;
 /*
 * The class Game initates the main GameWindow and dialog to ask players
 * usernames.
@@ -7,15 +8,17 @@ import javax.swing.JOptionPane;
 
 public class Game {
 
-    // Main game window
     private GameWindow window;
+    private boolean gameActive = true;
     private String currentAnswer;
-    private int currentPlayer = 0;
+    private Player currentPlayer;
+    private Player tempPlayer;
 
     public Game() {
         window = new GameWindow(800, 800);
         window.setPlayers(window.askUsername(window));
-        initGame();
+        Thread t = new Thread(this::initGame);
+        t.start();
     }
 
     private void initGame() {
@@ -36,8 +39,13 @@ public class Game {
         return currentPlayer;
     }
 
-    private void setCurrentPlayer(int currentPlayer) {
-        this.currentPlayer = currentPlayer;
+    private void setCurrentPlayer() {
+        List<Player> p = window.getPlayers();
+        currentPlayer = p.get((int)(Math.random()*p.size()) + 0);
+        while(tempPlayer != null && tempPlayer.getName().equals(currentPlayer.getName())) {
+            currentPlayer = p.get((int)(Math.random()*p.size()) + 0);
+        }
+        tempPlayer = currentPlayer;
     }
 
 }
