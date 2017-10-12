@@ -68,8 +68,8 @@ public class GameWindow extends JFrame {
         JPanel colorContainer = new JPanel(new BorderLayout());
         JPanel buttonContainer = new JPanel();
         buttonContainer.setLayout(new BoxLayout(buttonContainer, BoxLayout.Y_AXIS));
-        buttonContainer.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        buttonContainer.add(Box.createRigidArea(new Dimension(0,5)));
+        buttonContainer.setBorder(BorderFactory.createEmptyBorder(10,10,10,45));
+       
 
         JPanel colorSelect = new JPanel();
         buttonContainer.add(clearBtn);
