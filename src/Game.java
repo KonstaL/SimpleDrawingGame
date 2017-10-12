@@ -49,7 +49,10 @@ public class Game {
         }
         tempPlayer = currentPlayer;
     }
-
+    /*
+    * The getPlayerGuess() method loops over all players (excluding current player),
+    * opening a dialog for player guesses regarding the current image.
+    * */
     private void getPlayerGuess() {
         window.getPlayers().stream().forEach(p -> {
             if(!(p.getName().equals(currentPlayer.getName()))) {
