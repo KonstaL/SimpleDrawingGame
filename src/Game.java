@@ -43,7 +43,6 @@ public class Game {
             if(displayScores() != 1) {
                 gameActive = false;
             }
-
         }
     }
     /*
