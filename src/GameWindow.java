@@ -16,10 +16,6 @@ public class GameWindow extends JFrame {
     private DrawArea drawArea;
     private String[] players;
     JButton clearBtn,
-            blackBtn,
-            redBtn,
-            greenBtn,
-            blueBtn,
             mBtn,
             pBtn;
 
@@ -27,14 +23,6 @@ public class GameWindow extends JFrame {
         ActionListener a = (ActionEvent e)-> {
             if (e.getSource() == clearBtn) {
                 drawArea.clear();
-            } else if (e.getSource() == blackBtn) {
-                drawArea.black();
-            } else if (e.getSource() == redBtn) {
-                drawArea.red();
-            } else if (e.getSource() == greenBtn) {
-                drawArea.green();
-            } else if (e.getSource() == blueBtn) {
-                drawArea.blue();
             } else if (e.getSource() == mBtn) {
                 drawArea.reduceBrush();
             } else if (e.getSource() == pBtn) {
@@ -50,36 +38,22 @@ public class GameWindow extends JFrame {
         drawArea = new DrawArea();
 
         clearBtn = new JButton("Clear");
-        blackBtn = new JButton("Black");
-        redBtn = new JButton("Red");
-        greenBtn = new JButton("Green");
-        blueBtn = new JButton("Blue");
         mBtn = new JButton("-");
         pBtn = new JButton("+");
 
-        redBtn.addActionListener(a);
-        greenBtn.addActionListener(a);
-        blackBtn.addActionListener(a);
         clearBtn.addActionListener(a);
-        blueBtn.addActionListener(a);
         mBtn.addActionListener(a);
         pBtn.addActionListener(a);
 
-        JPanel optionsContainer = new JPanel(new BorderLayout());
         JPanel colorContainer = new JPanel(new BorderLayout());
         JPanel buttonContainer = new JPanel();
         buttonContainer.setLayout(new BoxLayout(buttonContainer, BoxLayout.Y_AXIS));
         buttonContainer.setBorder(BorderFactory.createEmptyBorder(10,10,10,45));
        
 
-        JPanel colorSelect = new JPanel();
         buttonContainer.add(clearBtn);
         buttonContainer.add(Box.createRigidArea(new Dimension(0,5)));
       
-        colorSelect.add(blackBtn);
-        colorSelect.add(redBtn);
-        colorSelect.add(greenBtn);
-        colorSelect.add(blueBtn);
 
         JPanel controls = new JPanel();
         buttonContainer.add(mBtn);
@@ -115,14 +89,12 @@ public class GameWindow extends JFrame {
         c.remove(2);
         c.remove(1);
         
-        optionsContainer.add(colorSelect, BorderLayout.NORTH);
-        optionsContainer.add(controls, BorderLayout.SOUTH);
+     
 
         colorContainer.add(jcl, BorderLayout.CENTER);
         colorContainer.add(buttonContainer, BorderLayout.EAST);
 
         add(colorContainer, BorderLayout.SOUTH);
-        add(optionsContainer, BorderLayout.NORTH);
         add(drawArea, BorderLayout.CENTER);
         setVisible(true);
     }
