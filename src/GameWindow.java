@@ -104,9 +104,8 @@ public class GameWindow extends JFrame {
     */
     public List<Player> askUsername(Component parent) {
         do {
-            players.add(new Player(JOptionPane.showInputDialog(parent, "Player 1!\nPlease enter name")));
-            players.add(new Player(JOptionPane.showInputDialog(parent, "Player 2!\nPlease enter name")));
-        } while (players.size() < 2);
+            players.add(new Player(JOptionPane.showInputDialog(parent, "Player " + (players.size() + 1) + "!" + "\nPlease enter name")));
+        } while (players.size() < 5);
         return players;
     }
 
