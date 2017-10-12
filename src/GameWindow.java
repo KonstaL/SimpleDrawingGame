@@ -16,6 +16,7 @@ import javax.swing.event.ChangeEvent;
 public class GameWindow extends JFrame {
     private DrawArea drawArea;
     private List<Player> players;
+    private CountdownTimer ct;
     JButton clearBtn,
             mBtn,
             pBtn;
@@ -74,6 +75,8 @@ public class GameWindow extends JFrame {
         colorContainer.add(jcl, BorderLayout.CENTER);
         colorContainer.add(buttonContainer, BorderLayout.EAST);
 
+        ct = new CountdownTimer();
+        add(ct, BorderLayout.PAGE_START);
         add(colorContainer, BorderLayout.SOUTH);
         add(drawArea, BorderLayout.CENTER);
         setVisible(true);
@@ -170,5 +173,9 @@ public class GameWindow extends JFrame {
           c.remove(1);
         
           return jcl;
+    }
+
+    public CountdownTimer getCt() {
+        return ct;
     }
 }
