@@ -15,6 +15,11 @@ public class CountdownTimer extends JLabel {
             repaint();
         });
     }
+    /*
+    * Simple method for requesting instance of CountdownTimer object
+    *
+    * @return       return instance of this CountdownTimer
+    * */
     public Timer getTimer() {
         return this.timer;
     }
