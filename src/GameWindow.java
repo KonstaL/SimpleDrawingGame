@@ -3,9 +3,10 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.JPanel;
-import javax.swing.JFrame;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.colorchooser.*;
 import javax.swing.Box;
@@ -17,7 +18,7 @@ import javax.swing.event.ChangeEvent;
 */
 public class GameWindow extends JFrame {
     private DrawArea drawArea;
-    private String[] players;
+    private List<Player> players;
     JButton clearBtn,
             mBtn,
             pBtn;
@@ -29,6 +30,7 @@ public class GameWindow extends JFrame {
     * @param height     height of the game window
     */
     public GameWindow(int width, int height) {
+        players = new ArrayList<>();
         ActionListener a = (ActionEvent e)-> {
             if (e.getSource() == clearBtn) {
                 drawArea.clear();
@@ -81,7 +83,7 @@ public class GameWindow extends JFrame {
     *
     * @param p      String array with player names in it
     */
-    public void setPlayers(String[] p) {
+    public void setPlayers(List<Player> p) {
         this.players = p;
     }
 
@@ -90,7 +92,7 @@ public class GameWindow extends JFrame {
     *
     * @return       player names in a String array
     */
-    public String[] getPlayers() {
+    public List<Player> getPlayers() {
         return this.players;
     }
 
@@ -100,12 +102,11 @@ public class GameWindow extends JFrame {
     * @param parent     the parent Component where the user input dialog is added to
     * @return           players names in a String array
     */
-    public String[] askUsername(Component parent) {
-        String[] players = new String[2]; //Hardcoded to string and limited to 2 for now
+    public List<Player> askUsername(Component parent) {
         do {
-            players[0] = JOptionPane.showInputDialog(parent, "Player 1!\nPlease enter name");
-            players[1] = JOptionPane.showInputDialog(parent, "Player 2!\nPlease enter name");
-        } while (players[0].length() <= 0 || players[1].length() <= 0);
+            players.add(new Player(JOptionPane.showInputDialog(parent, "Player 1!\nPlease enter name")));
+            players.add(new Player(JOptionPane.showInputDialog(parent, "Player 2!\nPlease enter name")));
+        } while (players.size() < 2);
         return players;
     }
 
