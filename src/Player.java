@@ -14,7 +14,11 @@ public class Player {
     public Player(String s) {
         this.name = s;
     }
-
+    /*
+    * Method for getting player name
+    *
+    * @return       String representation of player name
+    * */
     public String getName() {
         return name;
     }
