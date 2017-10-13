@@ -186,4 +186,9 @@ public class GameWindow extends JFrame {
     public void clear() {
         drawArea.clear();
     }
+    private class ActionEventListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        }            
+    }
 }
