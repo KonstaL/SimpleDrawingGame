@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.io.File;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.*;
 import java.awt.event.WindowEvent;
 import java.util.List;
 /*
@@ -151,11 +150,9 @@ public class Game {
     private void initMusic()  {
         try {
             File file = new File("../assets/bgMusic.wav");
-            Clip clip = AudioSystem.getClip();
-            
+            Clip clip = AudioSystem.getClip();;
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.start();
-            //Thread.sleep(clip.getMicrosecondLength());
         } catch(Exception e) {
             e.printStackTrace();
         }
