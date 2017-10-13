@@ -1,6 +1,7 @@
 import javax.swing.*;
-import sun.audio.*;
-import java.io.FileInputStream;
+import java.io.File;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.AudioSystem;
 import java.awt.event.WindowEvent;
 import java.util.List;
 /*
@@ -23,6 +24,7 @@ public class Game {
     * */
     public Game() {
         window = new GameWindow(800, 800);
+        initMusic();
         window.setPlayers(window.askUsername(window));
         Thread t = new Thread(this::initGame);
         t.start();
@@ -146,12 +148,17 @@ public class Game {
         return currentPlayer;
     }
 
-    private void initMusic() throws Exception {
-        AudioPlayer ap = AudioPlayer.player;
-        AudioStream as;
-        AudioData ad;
-        ContinuousAudioDataStream loop = null;
-
-        as = new AudioStream(new FileInputStream("./bgMusic.mp3"));
+    private void initMusic()  {
+        try {
+            File file = new File("../assets/bgMusic.wav");
+            Clip clip = AudioSystem.getClip();
+            
+            clip.open(AudioSystem.getAudioInputStream(file));
+            clip.start();
+            //Thread.sleep(clip.getMicrosecondLength());
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
+    
 }
