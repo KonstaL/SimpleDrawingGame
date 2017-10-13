@@ -186,7 +186,18 @@ public class GameWindow extends JFrame {
     public void clear() {
         drawArea.clear();
     }
+
+    /** 
+    * Handles the button listening
+    *
+    */
     private class ActionEventListener implements ActionListener {
+        
+        /** 
+        * Listenes to actions performed, and acts accordingly
+        *
+        * @param e  the action performed
+        */
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == clearBtn) {
