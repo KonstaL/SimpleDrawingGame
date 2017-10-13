@@ -148,7 +148,9 @@ public class Game {
     }
 
     private void initMusic()  {
+        //Starts a mew Thread, so main thread wont go to sleep
         Runnable music = () -> {
+            //Loops over every time clip ends
             while(true) { 
                 try {
                     File file = new File("../assets/bgMusic.wav");
@@ -156,11 +158,10 @@ public class Game {
                     clip.open(AudioSystem.getAudioInputStream(file));
                     clip.start();
                     Thread.sleep(clip.getMicrosecondLength());
-                
                 } catch(Exception e) {
                     e.printStackTrace();
                 }
-        }
+            }
         };
         new Thread(music).start();
     }
