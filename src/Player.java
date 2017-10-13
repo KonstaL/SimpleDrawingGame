@@ -1,7 +1,6 @@
 /**
 * Class Player, used to represent individual players,
 * and their in game attributes.
-
 */
 public class Player {
     private String name;
