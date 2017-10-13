@@ -55,7 +55,11 @@ public class Player {
     public String getGuess() {
         return guess;
     }
-
+    /*
+    * Method for setting players current guess.
+    *
+    * @param        String containing player inserted guess value
+    * */
     public void setGuess(String guess) {
         this.guess = guess;
     }
