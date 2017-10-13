@@ -130,11 +130,16 @@ public class GameWindow extends JFrame {
 
         //Ask usernames according to n amount
         for(int i = 0; i < n; i++) {
-            Player player;
+            Player player = null;
 
             //Ask a username until one is given
             do {
-                player = new Player(JOptionPane.showInputDialog(parent, "Player " + (i+1) + "!\nPlease enter name"));
+                String name = JOptionPane.showInputDialog(parent, "Player " + (i+1) + "!\nPlease enter name");
+                if(name == null) {
+                    player = new Player("");
+                } else {
+                    player = new Player(name);
+                }
             } while (player.getName().length() < 1);
 
             //Add the player to the list that were going to return
