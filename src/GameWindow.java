@@ -72,12 +72,11 @@ public class GameWindow extends JFrame {
         colorContainer.add(buttonContainer, BorderLayout.EAST);
 
         ct = new CountdownTimer();
-        ct.setPreferredSize(new Dimension(50, 50));
+        ct.setBounds(getWidth()/2-25, 0, 50, 50);
         ct.setFont(new Font("Mono", Font.BOLD, 40));
-        ct.setHorizontalAlignment(JLabel.CENTER);
         ct.setForeground(Color.magenta);
 
-        add(ct, BorderLayout.PAGE_START);
+        add(ct);
         add(colorContainer, BorderLayout.SOUTH);
         add(drawArea, BorderLayout.CENTER);
         setVisible(true);
