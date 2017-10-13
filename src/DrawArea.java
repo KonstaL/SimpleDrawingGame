@@ -35,6 +35,16 @@ class DrawArea extends JComponent {
                 // Save coord x,y when mouse is pressed
                 oldX = e.getX();
                 oldY = e.getY();
+
+                //make the "brush"
+                for(int i = 0; i < brushSize; i++) {
+                    //The "Brush"
+                    g2.drawLine(oldX-brushSize/2+i, oldY + brushSize/2, oldX - brushSize/2, oldY - brushSize/2 );
+                    g2.drawLine(oldX-brushSize/2+i, oldY - brushSize/2 +1, oldX + brushSize/2, oldY + brushSize/2 );
+                }
+
+                // Repaint to refresh draw area
+                repaint();
             }
         });
 
@@ -49,8 +59,8 @@ class DrawArea extends JComponent {
                 if (g2 != null) {
                     // Draws more lines under the first one based on brush size.
                     for(int i = 0; i < brushSize; i++) {
-                        g2.drawLine(currentX-brushSize/2+i, currentY + brushSize/2, currentX - brushSize/2, currentY - brushSize/2 );
-                        g2.drawLine(currentX-brushSize/2+i, currentY - brushSize/2 +1, currentX + brushSize/2, currentY + brushSize/2 );
+                        g2.drawLine(currentX-brushSize/2+i, currentY + brushSize/2, oldX - brushSize/2, oldY - brushSize/2);
+                        g2.drawLine(currentX-brushSize/2+i, currentY - brushSize/2 +1, oldX + brushSize/2, oldY + brushSize/2 );
                     }
                     
                     // Repaint to refresh draw area
