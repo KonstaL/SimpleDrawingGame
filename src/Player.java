@@ -38,7 +38,11 @@ public class Player {
     public int getPoints() {
         return points;
     }
-
+    /*
+    * Method for increasing player score points.
+    *
+    * @param        Receive an integer to be added to current score
+    * */
     public void setPoints(int points) {
         this.points += points;
     }
