@@ -32,6 +32,7 @@ public class Game {
     private void initGame() {
         CountdownTimer windowTimer = window.getCt();
         while(gameActive) {
+            window.clear();
             setCurrentPlayer();
             setCurrentAnswer(
                     JOptionPane.showInputDialog(window, currentPlayer.getName() + "\nWhat are you drawing?"));
