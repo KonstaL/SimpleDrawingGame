@@ -132,7 +132,7 @@ public class GameWindow extends JFrame {
         return players;
     }
 
-    /*
+    /** 
     * Initializes, edits and returns the JColorChoose panel
     *
     * 
@@ -169,7 +169,11 @@ public class GameWindow extends JFrame {
         
           return jcl;
     }
-
+    /** 
+    * Returns the CountDownTimer
+    *
+    * @return           countdown timer
+    */
     public CountdownTimer getCt() {
         return ct;
     }
