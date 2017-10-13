@@ -4,6 +4,5 @@
 
 ----To Fix----
 -Refactor into smaller classes
--The initial JOptionPane crashes if you press "X" or "cancel"
 
 ----Performance issues----
