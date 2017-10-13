@@ -30,7 +30,11 @@ public class Player {
     public void setName(String name) {
         this.name = name;
     }
-
+    /*
+    * Method for getting players current score.
+    *
+    * @return       Returns an integer representation of player score
+    * */
     public int getPoints() {
         return points;
     }
