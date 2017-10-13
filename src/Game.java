@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.io.File;
+import javax.sound.sampled.*;
 import java.awt.event.WindowEvent;
 import java.util.List;
 /*
@@ -21,6 +23,7 @@ public class Game {
     * */
     public Game() {
         window = new GameWindow(800, 800);
+        initMusic();
         window.setPlayers(window.askUsername(window));
         Thread t = new Thread(this::initGame);
         t.start();
@@ -142,5 +145,24 @@ public class Game {
     * */
     private Player getCurrentPlayer() {
         return currentPlayer;
+    }
+
+    private void initMusic()  {
+        //Starts a mew Thread, so main thread wont go to sleep
+        Runnable music = () -> {
+            //Loops over every time clip ends
+            while(true) { 
+                try {
+                    File file = new File("../assets/bgMusic.wav");
+                    Clip clip = AudioSystem.getClip();;
+                    clip.open(AudioSystem.getAudioInputStream(file));
+                    clip.start();
+                    Thread.sleep(clip.getMicrosecondLength());
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        new Thread(music).start();
     }
 }
