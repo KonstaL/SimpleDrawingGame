@@ -6,7 +6,7 @@ import java.util.List;
 import javax.swing.colorchooser.*;
 import javax.swing.event.ChangeEvent;
 
-/*
+/**
 * The GameWindow class extends JFrame to hold all the buttons and controls of the game.
 */
 public class GameWindow extends JFrame {
@@ -17,7 +17,7 @@ public class GameWindow extends JFrame {
             mBtn,
             pBtn;
 
-    /*
+    /**
     * Constructor of the game window.
     *
     * @param width      width of the game window
@@ -67,25 +67,25 @@ public class GameWindow extends JFrame {
         setVisible(true);
     }
 
-    /*
+    /**
     * Method for getting draw area.
     *
     * @return       instance of DrawArea class
-    * */
+    */
     public DrawArea getDrawArea() {
         return drawArea;
     }
 
-    /*
-        * Simple set method for setting player names Player List into GameWindow.
-        *
-        * @param p      String array with player names in it
-        */
+    /**
+    * Simple set method for setting player names Player List into GameWindow.
+    *
+    * @param p      String array with player names in it
+    */
     public void setPlayers(List<Player> p) {
         this.players = p;
     }
 
-    /*
+    /** 
     * Simple get method for string array of player names in the GameWindow.
     *
     * @return       player names in a Player List
@@ -94,7 +94,7 @@ public class GameWindow extends JFrame {
         return this.players;
     }
 
-    /*
+    /** 
     * Ask the username of the players playing the game. Shows dialog popups.
     *
     * @param parent     the parent Component where the user input dialog is added to
