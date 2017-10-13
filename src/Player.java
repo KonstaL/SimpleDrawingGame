@@ -15,14 +15,18 @@ public class Player {
         this.name = s;
     }
     /*
-    * Method for getting player name
+    * Method for getting player name.
     *
     * @return       String representation of player name
     * */
     public String getName() {
         return name;
     }
-
+    /*
+    * Method for setting player name.
+    *
+    * @param        String for setting name
+    * */
     public void setName(String name) {
         this.name = name;
     }
