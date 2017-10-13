@@ -1,4 +1,6 @@
 import javax.swing.*;
+import sun.audio.*;
+import java.io.FileInputStream;
 import java.awt.event.WindowEvent;
 import java.util.List;
 /*
@@ -144,7 +146,12 @@ public class Game {
         return currentPlayer;
     }
 
-    private void initMusic() {
+    private void initMusic() throws Exception {
+        AudioPlayer ap = AudioPlayer.player;
+        AudioStream as;
+        AudioData ad;
+        ContinuousAudioDataStream loop = null;
 
+        as = new AudioStream(new FileInputStream("./bgMusic.mp3"));
     }
 }
