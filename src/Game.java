@@ -1,4 +1,5 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.awt.event.WindowEvent;
 import java.util.List;
 /*
 * The class Game initiates the main GameWindow and dialog to ask players
@@ -13,6 +14,11 @@ public class Game {
     private Player currentPlayer;
     private Player tempPlayer;
 
+    /*
+    * The class Game constructor initializes the gamewindow,
+    * initializes current players and their usernames,
+    * and starts the initGame() methods game loop inside a thread.
+    * */
     public Game() {
         window = new GameWindow(800, 800);
         window.setPlayers(window.askUsername(window));
@@ -24,18 +30,38 @@ public class Game {
     * carrying out all necessary gameplay operations concerning player input.
     * */
     private void initGame() {
+        CountdownTimer windowTimer = window.getCt();
         while(gameActive) {
             setCurrentPlayer();
             setCurrentAnswer(
                     JOptionPane.showInputDialog(window, currentPlayer.getName() + "\nWhat are you drawing?"));
+            windowTimer.getTimer().start();
             try {
-                Thread.sleep(10000);
+                Thread.sleep(30000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            windowTimer.getTimer().stop();
+            windowTimer.resetTimer();
             getPlayerGuess();
             checkCorrectAnswers();
+            if(displayScores() != 1) {
+                initSystemShutdown();
+            }
         }
+    }
+    /*
+    * The initSystemShutdown() method closes the application
+    * */
+    private void initSystemShutdown() {
+        gameActive = false;
+        window.getDrawArea().clear();
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        window.dispatchEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSING));
     }
     /*
     * The setCurrentPlayer() method randomly sets which player draws next,
@@ -71,15 +97,48 @@ public class Game {
             }
         });
     }
+    /*
+    * The displayScores() method displays current game scores,
+    * and prompts players to either quit or continue playing.
+    * */
+    private int displayScores() {
+        Object[] options = {"Quit", "Continue"};
+        int wishToContinue = JOptionPane.showOptionDialog(window,
+                new JList<>(window.getPlayers().toArray()),
+                "Current scores",
+                2,
+                1,
+                null,
+                options,
+                options[1]);
+        return wishToContinue;
 
+    }
+
+
+    /*
+    * Method used to get currentAnswer attribute.
+    *
+    * @return       The correct answer for current drawing
+    * */
     private String getCurrentAnswer() {
         return currentAnswer;
     }
 
+    /*
+    * Method used to set the answer to an upcoming drawing.
+    *
+    * @param        User inserted string that describes the drawing
+    * */
     private void setCurrentAnswer(String currentAnswer) {
         this.currentAnswer = currentAnswer;
     }
 
+    /*
+    * Method used for retrieving current player.
+    *
+    * @return       Returns player object of current player
+    * */
     private Player getCurrentPlayer() {
         return currentPlayer;
     }

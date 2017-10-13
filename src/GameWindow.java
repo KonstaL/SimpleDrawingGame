@@ -1,16 +1,9 @@
-import javax.swing.JFrame;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JColorChooser;
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.colorchooser.*;
-import javax.swing.Box;
-import javax.swing.BorderFactory;
 import javax.swing.event.ChangeEvent;
 
 /*
@@ -19,6 +12,7 @@ import javax.swing.event.ChangeEvent;
 public class GameWindow extends JFrame {
     private DrawArea drawArea;
     private List<Player> players;
+    private CountdownTimer ct;
     JButton clearBtn,
             mBtn,
             pBtn;
@@ -77,16 +71,32 @@ public class GameWindow extends JFrame {
         colorContainer.add(jcl, BorderLayout.CENTER);
         colorContainer.add(buttonContainer, BorderLayout.EAST);
 
+        ct = new CountdownTimer();
+        ct.setPreferredSize(new Dimension(50, 50));
+        ct.setFont(new Font("Mono", Font.BOLD, 40));
+        ct.setHorizontalAlignment(JLabel.CENTER);
+        ct.setForeground(Color.magenta);
+
+        add(ct, BorderLayout.PAGE_START);
         add(colorContainer, BorderLayout.SOUTH);
         add(drawArea, BorderLayout.CENTER);
         setVisible(true);
     }
 
     /*
-    * Simple set method for setting player names String array into GameWindow.
+    * Method for getting draw area.
     *
-    * @param p      String array with player names in it
-    */
+    * @return       instance of DrawArea class
+    * */
+    public DrawArea getDrawArea() {
+        return drawArea;
+    }
+
+    /*
+        * Simple set method for setting player names Player List into GameWindow.
+        *
+        * @param p      String array with player names in it
+        */
     public void setPlayers(List<Player> p) {
         this.players = p;
     }
@@ -94,7 +104,7 @@ public class GameWindow extends JFrame {
     /*
     * Simple get method for string array of player names in the GameWindow.
     *
-    * @return       player names in a String array
+    * @return       player names in a Player List
     */
     public List<Player> getPlayers() {
         return this.players;
@@ -118,18 +128,22 @@ public class GameWindow extends JFrame {
             }
         } while(n < 2);
 
-        //For the amounth of player, ask for a username
+        //Ask usernames according to n amount
         for(int i = 0; i < n; i++) {
-            Player player;
+            Player player = null;
 
             //Ask a username until one is given
             do {
-                player = new Player(JOptionPane.showInputDialog(parent, "Player " + (i+1) + "!\nPlease enter name"));
+                String name = JOptionPane.showInputDialog(parent, "Player " + (i+1) + "!\nPlease enter name");
+                if(name == null) {
+                    player = new Player("");
+                } else {
+                    player = new Player(name);
+                }
             } while (player.getName().length() < 1);
 
             //Add the player to the list that were going to return
             players.add(player);
-            System.out.println(players.size());
         }
         return players;
     }
@@ -164,5 +178,9 @@ public class GameWindow extends JFrame {
           c.remove(1);
         
           return jcl;
+    }
+
+    public CountdownTimer getCt() {
+        return ct;
     }
 }

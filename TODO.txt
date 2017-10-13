@@ -1,14 +1,8 @@
 ----To implement----
--Timer functionality
--Functionality where the game asks for the right answer from player1 
-before letting player2 draw
--Functionality where player2 can guess the drawing
--Functionality where you can quit between rounds
--Functionality to display scoreboard after each round
+
 
 
 ----To Fix----
 -Refactor into smaller classes
--The initial JOptionPane crashes if you press "X" or "cancel"
 
 ----Performance issues----

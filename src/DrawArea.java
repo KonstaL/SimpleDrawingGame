@@ -3,7 +3,6 @@ import java.awt.event.MouseEvent;
 import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseMotionAdapter;
-import java.awt.event.MouseMotionListener;
 import java.awt.Image;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -96,12 +95,17 @@ class DrawArea extends JComponent {
        g2.setPaint(Color.BLACK);
        repaint(); 
     }
-
+    /*
+    * Method for reducing brush size.
+    * */
     public void reduceBrush() {
         if(brushSize > 1) {
             brushSize--;
         }
     }
+    /*
+    * Method for setting brush color.
+    * */
     public void setColor(Color c) {
         g2.setPaint(c);
     }
