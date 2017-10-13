@@ -35,6 +35,13 @@ class DrawArea extends JComponent {
                 // Save coord x,y when mouse is pressed
                 oldX = e.getX();
                 oldY = e.getY();
+                for(int i = 0; i < brushSize; i++) {
+                    g2.drawLine(oldX-brushSize/2+i, oldY + brushSize/2, oldX - brushSize/2, oldY - brushSize/2 );
+                    g2.drawLine(oldX-brushSize/2+i, oldY - brushSize/2 +1, oldX + brushSize/2, oldY + brushSize/2 );
+                }
+
+                // Repaint to refresh draw area
+                repaint();
             }
         });
 
