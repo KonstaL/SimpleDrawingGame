@@ -152,6 +152,9 @@ public class Game {
         return currentPlayer;
     }
 
+    /**
+     * Initializes a music loop in a new thread
+     */
     private void initMusic()  {
         //Starts a mew Thread, so main thread wont go to sleep
         Runnable music = () -> {
