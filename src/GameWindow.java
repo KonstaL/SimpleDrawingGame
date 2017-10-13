@@ -183,4 +183,8 @@ public class GameWindow extends JFrame {
     public CountdownTimer getCt() {
         return ct;
     }
+
+    public void clear() {
+        drawArea.clear();
+    }
 }
