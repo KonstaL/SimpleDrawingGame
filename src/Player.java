@@ -46,6 +46,12 @@ public class Player {
     public void setPoints(int points) {
         this.points += points;
     }
+
+    /*
+    * Method for getting players current guess.
+    *
+    * @return       String representation of player guess
+    * */
     public String getGuess() {
         return guess;
     }
