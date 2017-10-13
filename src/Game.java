@@ -143,4 +143,8 @@ public class Game {
     private Player getCurrentPlayer() {
         return currentPlayer;
     }
+
+    private void initMusic() {
+
+    }
 }
