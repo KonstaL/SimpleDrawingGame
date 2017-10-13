@@ -169,6 +169,7 @@ public class GameWindow extends JFrame {
         
           return jcl;
     }
+
     /** 
     * Returns the CountDownTimer
     *
@@ -178,6 +179,10 @@ public class GameWindow extends JFrame {
         return ct;
     }
 
+    /** 
+    * Reset the DrawArea to a white background
+    *
+    */
     public void clear() {
         drawArea.clear();
     }
