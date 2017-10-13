@@ -25,18 +25,7 @@ public class GameWindow extends JFrame {
     */
     public GameWindow(int width, int height) {
         players = new ArrayList<>();
-        ActionListener a = (ActionEvent e)-> {
-            if (e.getSource() == clearBtn) {
-                drawArea.clear();
-            } else if (e.getSource() == mBtn) {
-                drawArea.reduceBrush();
-            } else if (e.getSource() == pBtn) {
-                drawArea.increaseBrush();
-            } else {
-                System.out.println("Some other source"); //for debugging
-            }
-        };
-
+        
         setSize(width, height);
         setResizable(false);
         setTitle("Drawing game!");
@@ -47,7 +36,8 @@ public class GameWindow extends JFrame {
         clearBtn = new JButton("Clear");
         mBtn = new JButton("-");
         pBtn = new JButton("+");
-
+        
+        ActionListener a = new ActionEventListener();
         clearBtn.addActionListener(a);
         mBtn.addActionListener(a);
         pBtn.addActionListener(a);
@@ -189,6 +179,15 @@ public class GameWindow extends JFrame {
     private class ActionEventListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == clearBtn) {
+                drawArea.clear();
+            } else if (e.getSource() == mBtn) {
+                drawArea.reduceBrush();
+            } else if (e.getSource() == pBtn) {
+                drawArea.increaseBrush();
+            } else {
+                System.out.println("Some other source"); //for debugging
+            }
         }            
     }
 }
