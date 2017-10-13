@@ -8,7 +8,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
-/*
+/**
 * The DrawArea class initates the drawing area of the game and handles all the functionality
 * that is included in the drawing, clearing, color change and brush size in the game. Acts as
 * a component in the GameWindow frame.
@@ -35,6 +35,16 @@ class DrawArea extends JComponent {
                 // Save coord x,y when mouse is pressed
                 oldX = e.getX();
                 oldY = e.getY();
+
+                //make the "brush"
+                for(int i = 0; i < brushSize; i++) {
+                    //The "Brush"
+                    g2.drawLine(oldX-brushSize/2+i, oldY + brushSize/2, oldX - brushSize/2, oldY - brushSize/2 );
+                    g2.drawLine(oldX-brushSize/2+i, oldY - brushSize/2 +1, oldX + brushSize/2, oldY + brushSize/2 );
+                }
+
+                // Repaint to refresh draw area
+                repaint();
             }
         });
 
@@ -49,8 +59,8 @@ class DrawArea extends JComponent {
                 if (g2 != null) {
                     // Draws more lines under the first one based on brush size.
                     for(int i = 0; i < brushSize; i++) {
-                        g2.drawLine(currentX-brushSize/2+i, currentY + brushSize/2, currentX - brushSize/2, currentY - brushSize/2 );
-                        g2.drawLine(currentX-brushSize/2+i, currentY - brushSize/2 +1, currentX + brushSize/2, currentY + brushSize/2 );
+                        g2.drawLine(currentX-brushSize/2+i, currentY + brushSize/2, oldX - brushSize/2, oldY - brushSize/2);
+                        g2.drawLine(currentX-brushSize/2+i, currentY - brushSize/2 +1, oldX + brushSize/2, oldY + brushSize/2 );
                     }
                     
                     // Repaint to refresh draw area
@@ -64,7 +74,7 @@ class DrawArea extends JComponent {
         });
     }
 
-    /*
+    /**
     * Painting method that draws image based on drawings made in mouseDragged.
     * 
     * @param g      graphics that are set to be painted
@@ -84,7 +94,7 @@ class DrawArea extends JComponent {
 
     }
 
-    /*
+    /**
     * Simple method to repaint the shole draw area white and set the
     * painting color black.
     */
@@ -95,22 +105,22 @@ class DrawArea extends JComponent {
        g2.setPaint(Color.BLACK);
        repaint(); 
     }
-    /*
+    /**
     * Method for reducing brush size.
-    * */
+    */
     public void reduceBrush() {
         if(brushSize > 1) {
             brushSize--;
         }
     }
-    /*
+    /**
     * Method for setting brush color.
-    * */
+    */
     public void setColor(Color c) {
         g2.setPaint(c);
     }
 
-    /*
+    /**
     * Increases the brush size by 1.
     */
     public void increaseBrush() {
