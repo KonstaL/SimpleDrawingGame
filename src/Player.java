@@ -6,7 +6,11 @@ public class Player {
     private String name;
     private String guess;
     private int points = 0;
-
+    /*
+    * Constructor method for class Player.
+    *
+    * @param        String variable used to init player name
+    * */
     public Player(String s) {
         this.name = s;
     }
