@@ -3,11 +3,11 @@ import java.io.File;
 import javax.sound.sampled.*;
 import java.awt.event.WindowEvent;
 import java.util.List;
-/*
+
+/**
 * The class Game initiates the main GameWindow and dialog to ask players
 * usernames.
 */
-
 public class Game {
 
     private GameWindow window;
@@ -16,7 +16,7 @@ public class Game {
     private Player currentPlayer;
     private Player tempPlayer;
 
-    /*
+    /**
     * The class Game constructor initializes the gamewindow,
     * initializes current players and their usernames,
     * and starts the initGame() methods game loop inside a thread.
@@ -28,7 +28,8 @@ public class Game {
         Thread t = new Thread(this::initGame);
         t.start();
     }
-    /*
+
+    /** 
     * The initGame method functions as a "game loop",
     * carrying out all necessary gameplay operations concerning player input.
     * */
@@ -54,9 +55,10 @@ public class Game {
             }
         }
     }
-    /*
+
+    /**
     * The initSystemShutdown() method closes the application
-    * */
+    */
     private void initSystemShutdown() {
         gameActive = false;
         window.getDrawArea().clear();
@@ -67,10 +69,11 @@ public class Game {
         }
         window.dispatchEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSING));
     }
-    /*
+
+    /**
     * The setCurrentPlayer() method randomly sets which player draws next,
     * excluding the person that drew the last image.
-    * */
+    */
     private void setCurrentPlayer() {
         List<Player> p = window.getPlayers();
         currentPlayer = p.get((int)(Math.random()*p.size()) + 0);
@@ -79,10 +82,11 @@ public class Game {
         }
         tempPlayer = currentPlayer;
     }
-    /*
+
+    /**
     * The getPlayerGuess() method loops over all players (excluding current player),
     * opening a dialog for player guesses regarding the current image.
-    * */
+    */
     private void getPlayerGuess() {
         window.getPlayers().stream().forEach(p -> {
             if(!(p.getName().equals(currentPlayer.getName()))) {
@@ -90,10 +94,11 @@ public class Game {
             }
         });
     }
-    /*
+
+    /**
     * The checkCorrectAnswers() method loops over all player answers (excluding current player),
-    * and checks if any of the guesses match the current answer.
-    * */
+    * and checks if any of the guesses match the current answer. 
+    */
     private void checkCorrectAnswers() {
         window.getPlayers().stream().forEach(p -> {
             if(!(p.getName().equals(currentPlayer.getName())) && p.getGuess().equals(getCurrentAnswer())) {
@@ -101,10 +106,11 @@ public class Game {
             }
         });
     }
-    /*
+
+    /**
     * The displayScores() method displays current game scores,
     * and prompts players to either quit or continue playing.
-    * */
+    */
     private int displayScores() {
         Object[] options = {"Quit", "Continue"};
         int wishToContinue = JOptionPane.showOptionDialog(window,
@@ -119,34 +125,36 @@ public class Game {
 
     }
 
-
-    /*
+    /**
     * Method used to get currentAnswer attribute.
     *
     * @return       The correct answer for current drawing
-    * */
+    */
     private String getCurrentAnswer() {
         return currentAnswer;
     }
 
-    /*
+    /**
     * Method used to set the answer to an upcoming drawing.
     *
     * @param        User inserted string that describes the drawing
-    * */
+    */
     private void setCurrentAnswer(String currentAnswer) {
         this.currentAnswer = currentAnswer;
     }
 
-    /*
+    /**
     * Method used for retrieving current player.
     *
     * @return       Returns player object of current player
-    * */
+    */
     private Player getCurrentPlayer() {
         return currentPlayer;
     }
 
+    /**
+     * Initializes a music loop in a new thread
+     */
     private void initMusic()  {
         //Starts a mew Thread, so main thread wont go to sleep
         Runnable music = () -> {

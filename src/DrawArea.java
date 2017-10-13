@@ -8,7 +8,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
-/*
+/**
 * The DrawArea class initates the drawing area of the game and handles all the functionality
 * that is included in the drawing, clearing, color change and brush size in the game. Acts as
 * a component in the GameWindow frame.
@@ -74,7 +74,7 @@ class DrawArea extends JComponent {
         });
     }
 
-    /*
+    /**
     * Painting method that draws image based on drawings made in mouseDragged.
     * 
     * @param g      graphics that are set to be painted
@@ -94,7 +94,7 @@ class DrawArea extends JComponent {
 
     }
 
-    /*
+    /**
     * Simple method to repaint the shole draw area white and set the
     * painting color black.
     */
@@ -105,22 +105,22 @@ class DrawArea extends JComponent {
        g2.setPaint(Color.BLACK);
        repaint(); 
     }
-    /*
+    /**
     * Method for reducing brush size.
-    * */
+    */
     public void reduceBrush() {
         if(brushSize > 1) {
             brushSize--;
         }
     }
-    /*
+    /**
     * Method for setting brush color.
-    * */
+    */
     public void setColor(Color c) {
         g2.setPaint(c);
     }
 
-    /*
+    /**
     * Increases the brush size by 1.
     */
     public void increaseBrush() {

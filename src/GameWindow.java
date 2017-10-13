@@ -6,7 +6,7 @@ import java.util.List;
 import javax.swing.colorchooser.*;
 import javax.swing.event.ChangeEvent;
 
-/*
+/**
 * The GameWindow class extends JFrame to hold all the buttons and controls of the game.
 */
 public class GameWindow extends JFrame {
@@ -17,7 +17,7 @@ public class GameWindow extends JFrame {
             mBtn,
             pBtn;
 
-    /*
+    /**
     * Constructor of the game window.
     *
     * @param width      width of the game window
@@ -25,18 +25,7 @@ public class GameWindow extends JFrame {
     */
     public GameWindow(int width, int height) {
         players = new ArrayList<>();
-        ActionListener a = (ActionEvent e)-> {
-            if (e.getSource() == clearBtn) {
-                drawArea.clear();
-            } else if (e.getSource() == mBtn) {
-                drawArea.reduceBrush();
-            } else if (e.getSource() == pBtn) {
-                drawArea.increaseBrush();
-            } else {
-                System.out.println("Some other source"); //for debugging
-            }
-        };
-
+        
         setSize(width, height);
         setResizable(false);
         setTitle("Drawing game!");
@@ -48,6 +37,7 @@ public class GameWindow extends JFrame {
         mBtn = new JButton("-");
         pBtn = new JButton("+");
 
+        ActionListener a = new ActionEventListener();
         clearBtn.addActionListener(a);
         mBtn.addActionListener(a);
         pBtn.addActionListener(a);
@@ -58,13 +48,8 @@ public class GameWindow extends JFrame {
         buttonContainer.setLayout(new GridLayout(3,1));
 
         buttonContainer.add(clearBtn);
-        clearBtn.setAlignmentX(buttonContainer.CENTER_ALIGNMENT);
-
         buttonContainer.add(mBtn);
-        mBtn.setAlignmentX(buttonContainer.CENTER_ALIGNMENT);
-
         buttonContainer.add(pBtn);
-        pBtn.setAlignmentX(buttonContainer.CENTER_ALIGNMENT);
       
         JColorChooser jcl = initColorChooser();
        
@@ -82,25 +67,25 @@ public class GameWindow extends JFrame {
         setVisible(true);
     }
 
-    /*
+    /**
     * Method for getting draw area.
     *
     * @return       instance of DrawArea class
-    * */
+    */
     public DrawArea getDrawArea() {
         return drawArea;
     }
 
-    /*
-        * Simple set method for setting player names Player List into GameWindow.
-        *
-        * @param p      String array with player names in it
-        */
+    /**
+    * Simple set method for setting player names Player List into GameWindow.
+    *
+    * @param p      String array with player names in it
+    */
     public void setPlayers(List<Player> p) {
         this.players = p;
     }
 
-    /*
+    /** 
     * Simple get method for string array of player names in the GameWindow.
     *
     * @return       player names in a Player List
@@ -109,7 +94,7 @@ public class GameWindow extends JFrame {
         return this.players;
     }
 
-    /*
+    /** 
     * Ask the username of the players playing the game. Shows dialog popups.
     *
     * @param parent     the parent Component where the user input dialog is added to
@@ -147,6 +132,12 @@ public class GameWindow extends JFrame {
         return players;
     }
 
+    /** 
+    * Initializes, edits and returns the JColorChoose panel
+    *
+    * 
+    * @return           a formatted JColorChoose
+    */
     public JColorChooser initColorChooser() {
         JColorChooser jcl = new JColorChooser();
         
@@ -179,11 +170,45 @@ public class GameWindow extends JFrame {
           return jcl;
     }
 
+    /** 
+    * Returns the CountDownTimer
+    *
+    * @return           countdown timer
+    */
     public CountdownTimer getCt() {
         return ct;
     }
 
+    /** 
+    * Reset the DrawArea to a white background
+    *
+    */
     public void clear() {
         drawArea.clear();
+    }
+
+    /** 
+    * Handles the button listening
+    *
+    */
+    private class ActionEventListener implements ActionListener {
+        
+        /** 
+        * Listenes to actions performed, and acts accordingly
+        *
+        * @param e  the action performed
+        */
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == clearBtn) {
+                drawArea.clear();
+            } else if (e.getSource() == mBtn) {
+                drawArea.reduceBrush();
+            } else if (e.getSource() == pBtn) {
+                drawArea.increaseBrush();
+            } else {
+                System.out.println("Some other source"); //for debugging
+            }
+        }            
     }
 }
