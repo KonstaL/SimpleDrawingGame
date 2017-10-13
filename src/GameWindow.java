@@ -132,6 +132,12 @@ public class GameWindow extends JFrame {
         return players;
     }
 
+    /*
+    * Initializes, edits and returns the JColorChoose panel
+    *
+    * 
+    * @return           a formatted JColorChoose
+    */
     public JColorChooser initColorChooser() {
         JColorChooser jcl = new JColorChooser();
         
