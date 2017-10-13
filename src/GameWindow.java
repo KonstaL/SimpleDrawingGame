@@ -36,7 +36,7 @@ public class GameWindow extends JFrame {
         clearBtn = new JButton("Clear");
         mBtn = new JButton("-");
         pBtn = new JButton("+");
-        
+
         ActionListener a = new ActionEventListener();
         clearBtn.addActionListener(a);
         mBtn.addActionListener(a);
@@ -48,13 +48,8 @@ public class GameWindow extends JFrame {
         buttonContainer.setLayout(new GridLayout(3,1));
 
         buttonContainer.add(clearBtn);
-        clearBtn.setAlignmentX(buttonContainer.CENTER_ALIGNMENT);
-
         buttonContainer.add(mBtn);
-        mBtn.setAlignmentX(buttonContainer.CENTER_ALIGNMENT);
-
         buttonContainer.add(pBtn);
-        pBtn.setAlignmentX(buttonContainer.CENTER_ALIGNMENT);
       
         JColorChooser jcl = initColorChooser();
        
