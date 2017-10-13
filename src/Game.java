@@ -149,15 +149,18 @@ public class Game {
 
     private void initMusic()  {
         Runnable music = () -> {
-            try {
-                File file = new File("../assets/bgMusic.wav");
-                Clip clip = AudioSystem.getClip();;
-                clip.open(AudioSystem.getAudioInputStream(file));
-                clip.start();
-    
-            } catch(Exception e) {
-                e.printStackTrace();
-            }
+            while(true) { 
+                try {
+                    File file = new File("../assets/bgMusic.wav");
+                    Clip clip = AudioSystem.getClip();;
+                    clip.open(AudioSystem.getAudioInputStream(file));
+                    clip.start();
+                    Thread.sleep(clip.getMicrosecondLength());
+                
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
+        }
         };
         new Thread(music).start();
     }
