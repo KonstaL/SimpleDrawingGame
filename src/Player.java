@@ -63,6 +63,11 @@ public class Player {
     public void setGuess(String guess) {
         this.guess = guess;
     }
+    /*
+    * An overwritten method for getting a String representation of Player object.
+    *
+    * @return       String representation of Player objects attributes
+    * */
     @Override
     public String toString() {
         return this.getName() + ": " + this.getPoints();
